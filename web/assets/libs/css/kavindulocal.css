@@ -1,0 +1,28 @@
+.divCol{
+    width: 50%;
+    max-width: 50%;
+    padding: 10px;
+}
+
+.divCol2{
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+}
+
+.divCol3{
+    width: 33%;
+    max-width: 33%;
+    padding: 10px;
+}
+
+.btndiv{
+    width: 250px;
+    margin-left: 730px;
+    padding: 10px;
+}
+
+.btn{
+    width: 100px;
+    padding: 5px;
+}
