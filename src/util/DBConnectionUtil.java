@@ -29,7 +29,7 @@ public class DBConnectionUtil {
             {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                conn = DriverManager.getConnection("jdbc:mysql://localhost/ariedu?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+                conn = DriverManager.getConnection("jdbc:mysql://localhost/ariaedu?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
                         "root",
                         "");
 

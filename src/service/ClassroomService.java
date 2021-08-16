@@ -23,11 +23,11 @@ public class ClassroomService implements IClassroom {
             preparedStatement = con.prepareStatement(sql);
             System.out.println(sql);
 
-            preparedStatement.setInt(1,classroom.getId());
-            preparedStatement.setString(2,classroom.getName());
-            preparedStatement.setString(3,classroom.getFloor());
-            preparedStatement.setInt(4,classroom.getCapacity());
-            preparedStatement.setString(5,classroom.getAc());
+
+            preparedStatement.setString(1,classroom.getName());
+            preparedStatement.setString(2,classroom.getFloor());
+            preparedStatement.setInt(3,classroom.getCapacity());
+            preparedStatement.setString(4,classroom.getAc());
 
 
 
