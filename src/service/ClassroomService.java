@@ -6,6 +6,8 @@ import util.QueryTimeAndClass;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ClassroomService implements IClassroom {
@@ -49,6 +51,45 @@ public class ClassroomService implements IClassroom {
 
     @Override
     public ArrayList<Classroom> viewClassroom() {
-        return null;
+
+        ArrayList<Classroom> list = new ArrayList<>();
+
+        try {
+
+            con = DBConnectionUtil.getConnection();
+            String sql=QueryTimeAndClass.SEE_CLASS;
+
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                int id =Integer.parseInt(rs.getString(1));
+                String name= (rs.getString(2));
+                String floor =rs.getString(3);
+                int capacity =Integer.parseInt(rs.getString(4));
+                String ac =rs.getString(5);
+
+
+                Classroom classroom = new Classroom();
+
+                classroom.setId(id);
+                classroom.setName(name);
+                classroom.setFloor(floor);
+                classroom.setCapacity(capacity);
+                classroom.setAc(ac);
+
+
+                list.add(classroom);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+
+
+
     }
 }
