@@ -7,6 +7,9 @@ abstract class Person {
     private String fname;
     private String lname;
     private String email;
+    private String nic;
+    private String phone;
+    private String address;
     private String password;
     private Date dob;
     private String gender;
@@ -25,6 +28,32 @@ abstract class Person {
 
 
 //getters and setters
+
+
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getFname() {
         return fname;
     }
