@@ -280,12 +280,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Blank</h2>
+                            <h2 class="pageheader-title">Add Time Slot</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Bland</li>
+                                        <li class="breadcrumb-item active" aria-current="page">add time slot</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -309,12 +309,13 @@
                 %>
                 <div class="card">
                     <div class="card-body">
-                        <form action="<%=request.getContextPath()%>/AddTImeSlotServlet" method="post">
+                        <form id="form" onsubmit="return validateform()" action="<%=request.getContextPath()%>/AddTImeSlotServlet" method="post">
                             <div class="row g-3">
                                 <div class="divCol">
                                     <div class="form-group">
                                         <label for="batch">Batch</label>
                                         <select class="form-control" id="batch" name="batch">
+                                            <option value="0">choose batch</option>
                                             <%
                                                 for(Batch batch:tempBatch){
                                             %>
@@ -322,13 +323,16 @@
                                             <%
                                                 }
                                             %>
+
                                         </select>
+                                        <h5 id="batchcheck" style="color:red"></h5>
                                     </div>
                                 </div>
                                 <div class="divCol">
                                     <div class="form-group">
                                         <label for="day">Day</label>
                                         <select class="form-control" id="day" name="day">
+                                            <option value="0">choose date</option>
                                             <option value="monday">Monday</option>
                                             <option value="tuesday">Tuesday</option>
                                             <option value="wednesday">Wednesday</option>
@@ -337,6 +341,7 @@
                                             <option value="saturday">Saturday</option>
                                             <option value="sunday">Sunday</option>
                                         </select>
+                                        <h5 id="daycheck" style="color:red"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -344,13 +349,15 @@
                                 <div class="divCol">
                                     <div class="form-control">
                                         <label for="starttime">Start Time</label>
-                                        <input type="Time" name="starttime" id="starttime">
+                                        <input type="Time" name="starttime" id="starttime" value="">
+                                        <h5 id="starttimecheck" style="color:red"></h5>
                                     </div>
                                 </div>
                                 <div class="divCol">
                                     <div class="form-control">
                                         <label for="endtime">End Time</label>
-                                        <input type="Time" name="endtime" id="endtime">
+                                        <input type="Time" name="endtime" id="endtime" value="">
+                                        <h5 id="endtimecheck" style="color:red"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -359,17 +366,20 @@
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
                                         <select class="form-control" id="subject" name="subject">
+                                            <option value="0">choose subject</option>
                                             <option value="bio">Biology</option>
-                                            <option value="mathd">Combined Maths</option>
+                                            <option value="maths">Combined Maths</option>
                                             <option value="phy">Physics</option>
                                             <option value="chem">Chemestry</option>
                                         </select>
+                                        <h5 id="subjectcheck" style="color:red"></h5>
                                     </div>
                                 </div>
                                 <div class="divCol">
                                     <div class="form-group">
                                         <label for="teacher">Teacher</label>
                                         <select class="form-control" id="teacher" name="teacher">
+                                            <option value="0">choose teacher</option>
                                             <%
                                                 for(Loading loading :tempTeacher){
                                             %>
@@ -378,6 +388,7 @@
                                             }
                                         %>
                                         </select>
+                                        <h5 id="teachercheck" style="color:red"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -386,6 +397,7 @@
                                     <div class="form-group">
                                         <label for="classroom">Hall</label>
                                         <select class="form-control" id="classroom" name="classroom">
+                                            <option value="0">choose classroom</option>
                                             <%
                                                 for(Classroom classroom :tempClass){
                                                     System.out.println(classroom.getName());
@@ -395,13 +407,14 @@
                                                 }
                                             %>
                                         </select>
+                                        <h5 id="classroomcheck" style="color:red"></h5>
                                     </div>
                                 </div>
                             </div>
                     </div>
                     <div class="row g-3">
                         <div class="btndiv">
-                            <a href="#" class="btn btn-rounded btn-danger">Reset</a>
+                            <a onclick="reset()" class="btn btn-rounded btn-danger">Reset</a>
                             <button type="submit" class="btn btn-rounded btn-primary">Add</button>
                         </div>
                     </div>
@@ -464,6 +477,8 @@
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+
+    <script src="assets/libs/js/timeslot.js"></script>
 
     <!--- JQuery Area-->
     <script >
