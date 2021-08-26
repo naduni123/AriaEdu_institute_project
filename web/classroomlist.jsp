@@ -323,7 +323,9 @@
                                         <td id="floor"><%= i.getFloor() %></td>
                                         <td id="capacity"><%= i.getCapacity() %></td>
                                         <td id="ac"><%= i.getAc() %></td>
-                                        <td>edit</td>
+                                        <td>
+                                            <a href="update_classroom.jsp"><i class="fas fa-edit"></i></a>
+                                        </td>
                                     </tr>
                                     <%} %>
                                     </tbody>
