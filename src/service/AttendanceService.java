@@ -7,10 +7,7 @@ import util.DBConnectionUtil;
 import util.QueryAttendance;
 import util.QueryTimeAndClass;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class AttendanceService implements IAttendance{
@@ -59,7 +56,10 @@ public class AttendanceService implements IAttendance{
 
 
             preparedStatement.setInt(1,attendance.getId());
-            preparedStatement.setInt(2,attendance.getStatus());
+            preparedStatement.setDate(2,attendance.getTimestamp());
+            preparedStatement.setInt(3,attendance.getStatus());
+            preparedStatement.setString(4,attendance.getSubject());
+            preparedStatement.setString(5,attendance.getBatch());
 
 
 
@@ -105,15 +105,14 @@ public class AttendanceService implements IAttendance{
         return list;
 
     }
-
-    public ArrayList<Student> viewbySubject(String subject, String batch){
+    public ArrayList<Student> viewbySubject(String subject, String batch) {
 
         ArrayList<Student> list = new ArrayList<>();
 
         try {
 
             con = DBConnectionUtil.getConnection();
-            String sql = "select * from studentdetails where id in(select sid from studentlearnsubject where subject='"+subject+"' and batch='"+batch+"')";
+            String sql = "select * from studentdetails where id not in(select sid from attendance where date=curdate() and subject='" + subject + "' and batch='" + 2021 + "') ";
 
 
             preparedStatement = con.prepareStatement(sql);
@@ -126,7 +125,47 @@ public class AttendanceService implements IAttendance{
                 Student student = new Student();
 
                 student.setId(rs.getInt(1));
-                student.setFirstName(rs.getString(2)+" "+rs.getString(3));
+                student.setFirstName(rs.getString(2) + " " + rs.getString(3));
+
+
+                list.add(student);
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+
+
+    }
+
+
+
+    public ArrayList<Attendance> viewAttendancebySubject(String subject, String batch, Date date){
+
+        ArrayList<Attendance> list = new ArrayList<>();
+
+        try {
+
+            con = DBConnectionUtil.getConnection();
+            String sql = "select * from studentdetails s , attendance a where s.id in(select sid from attendance where date='"+date+"' and subject='" + subject +"' and batch='" + batch +"') and s.id=a.sid";
+
+
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()) {
+
+                Attendance student = new Attendance();
+
+                student.setId(rs.getInt(1));
+                student.setName(rs.getString(2)+" "+rs.getString(3));
+
+
+
+                student.setStatus(rs.getInt(15));
+
 
 
                 list.add(student);

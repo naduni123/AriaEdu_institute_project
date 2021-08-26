@@ -1,4 +1,4 @@
-const toSubmit =()=>{
+/*const toSubmit =()=>{
 
     if(document.getElementById("fname").value == "")
     {
@@ -8,4 +8,10 @@ const toSubmit =()=>{
         document.getElementById("labelfname").style.color = "red";
     }
 
+}
+*/
+
+function validate(){
+
+    alert("hi");
 }

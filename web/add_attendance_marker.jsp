@@ -309,7 +309,7 @@
                 <div class="card">
                     <h2 class="card-header">Add Attendance Marker</h2>
                     <div class="card-body">
-                        <form id="form"  action="<%=request.getContextPath()%>/AddAttendanceMarkerServlet"  method="post">
+                        <form id="form"  onsubmit="return validate1()"action="<%=request.getContextPath()%>/AddAttendanceMarkerServlet"  method="post">
                             <div class="row g-3">
                                 <div class="divCol">
                                     <label id="labelfname" class="col-form-label">First Name</label>
@@ -398,7 +398,7 @@
                             </div>
                             <div class="bottombtn">
                                 <button href="#" class="btn btn-rounded btn-danger">Reset</button>
-                                <button id="btnsave" type="submit" onclick ="toSubmit()" class="btn btn-rounded btn-primary">Add</button>
+                                <button id="btnsave" type="submit" class="btn btn-rounded btn-primary">Add</button>
                             </div>
                         </form>
                     </div>
@@ -457,7 +457,6 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
-
 
 
 
