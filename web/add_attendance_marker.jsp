@@ -24,10 +24,18 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"/>
+
+
+
+
     <title>AriaEdu</title>
 </head>
 
 <body>
+<script src="assets/libs/js/marker.js"></script>
+
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -301,33 +309,38 @@
                 <div class="card">
                     <h2 class="card-header">Add Attendance Marker</h2>
                     <div class="card-body">
-                        <form action="<%=request.getContextPath()%>/AddAttendanceMarkerServlet" method="post">
+                        <form id="form"  action="<%=request.getContextPath()%>/AddAttendanceMarkerServlet"  method="post">
                             <div class="row g-3">
                                 <div class="divCol">
-                                    <label class="col-form-label">First Name</label>
-                                    <input type="text" name="fname" id="fname" class="form-control">
+                                    <label id="labelfname" class="col-form-label">First Name</label>
+                                    <input type="text" name="fname" id="fname" value="" class="form-control">
+                                    <small id=result"></small>
                                 </div>
                                 <div class="divCol">
-                                    <label class="col-form-label">Last Name</label>
+                                    <label id="labellname" class="col-form-label">Last Name</label>
                                     <input type="text" name="lname" id="lname" class="form-control">
+                                    <small id=result"></small>
                                 </div>
                             </div>
 
                             <div class="row g-3">
                                 <div class="divCol">
-                                    <label class="col-form-label">Date Of Birth</label>
+                                    <label id ="labeldob" class="col-form-label">Date Of Birth</label>
                                     <input type="Date" name="dob" id="dob" class="form-control">
+                                    <small id=result"></small>
                                 </div>
                                 <div class="divCol">
-                                    <label class="col-form-label">NIC</label>
+                                    <label id="labelnic" class="col-form-label">NIC</label>
                                     <input type="text" name="nic" id="nic" class="form-control">
+                                    <small id=result"></small>
                                 </div>
                             </div>
 
                             <div class="row g-3">
                                 <div class="divCol2">
-                                    <label class="col-form-label">Address</label>
+                                    <label id="labeladdress" class="col-form-label">Address</label>
                                     <input type="text" name="address" id="address" class="form-control">
+                                    <small id=result"></small>
                                 </div>
                             </div>
 
@@ -343,13 +356,15 @@
                                 </div>
 
                                 <div class="divCol3">
-                                    <label class="col-form-label">Phone Number</label>
+                                    <label ld="labeltele" class="col-form-label">Phone Number</label>
                                     <input type="tel" name="Phone" id="Phone" class="form-control">
+                                    <small id=result"></small>
                                 </div>
 
                                 <div class="divCol3">
-                                    <label class="col-form-label">Email</label>
+                                    <label id="labelemail" class="col-form-label">Email</label>
                                     <input type="email" name="email" id="email" class="form-control">
+                                    <small id=result"></small>
                                 </div>
                             </div>
 
@@ -383,7 +398,7 @@
                             </div>
                             <div class="bottombtn">
                                 <button href="#" class="btn btn-rounded btn-danger">Reset</button>
-                                <button  class="btn btn-rounded btn-primary">Add</button>
+                                <button id="btnsave" type="submit" onclick ="toSubmit()" class="btn btn-rounded btn-primary">Add</button>
                             </div>
                         </form>
                     </div>
@@ -442,6 +457,10 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+
+
+
+
 </body>
 
 </html>
