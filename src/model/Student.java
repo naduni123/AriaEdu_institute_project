@@ -24,6 +24,22 @@ public class Student {
         super();
     }
 
+    //parameterized constructor exclude id
+    public Student(String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String[] subject) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.dob = dob;
+        this.nic = nic;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.admissionDate = admissionDate;
+        this.batch = batch;
+        this.subject = subject;
+    }
+
     //parameterized constructor
     public Student(int id, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String[] subject) {
         super();
