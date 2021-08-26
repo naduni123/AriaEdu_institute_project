@@ -18,11 +18,38 @@
 
 .btndiv{
     width: 250px;
-    margin-left: 730px;
+    margin-left: 700px;
     padding: 10px;
 }
 
 .btn{
     width: 100px;
     padding: 5px;
+
+}
+
+.fullwidth{
+    min-width: 1000px;
+    min-height: 200px;
+    padding: 10px;
+}
+
+.halfwidth{
+    min-width: 450px;
+    min-height: 200px;
+    padding: 10px;
+
+}
+
+.center1{
+    margin-top: 90px;
+    margin-left: 400px;
+    font-size: 28px;
+}
+
+.center{
+    margin-top: 90px;
+    margin-left: 100px;
+    font-size: 28px;
+
 }
