@@ -29,7 +29,7 @@ public class AddClassroomServlet extends HttpServlet {
 
         ClassroomService classroomService = new ClassroomService();
         classroomService.addClassroom(classroom);
-        response.sendRedirect("indexhome.jsp");
+        response.sendRedirect("classroomlist.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
