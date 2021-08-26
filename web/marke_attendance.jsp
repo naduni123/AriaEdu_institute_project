@@ -383,23 +383,30 @@
                                             </thead>
                                             <tbody>
                                             <%
+                                                int i=0;
                                                 for(Student s :list){
+
+
                                             %>
                                             <form action="<%=request.getContextPath()%>/AddAttendanceServlet" method="post">
                                             <tr>
-                                                <td  ><li value="<%=s.getId()%>" id="sid" name="sid"></li></td>
-                                                <td ><h3 id="name" name="name"><%=s.getFirstName()%></h3></td>
+                                                <td><%=s.getId()%></td>
+                                                <td ><%=s.getFirstName()%></td>
                                                 <td >
                                                     <div class="switch-button switch-button-success">
-                                                        <input type="checkbox" checked="hello" name="switch13" id="status" value="present"><span>
-                                                    <label for="status"></label></span>
+                                                        <input type="checkbox"  name="status" id="<%=s.getId()%>" value="1"><span>
+                                                    <label for="<%=s.getId()%>"></label></span>
                                                     </div>
 
                                                 </td>
-                                                <td><button type="submit">save</button></td>
+                                                <td>
+                                                        <input id="sid" type="hidden" name="sid" value="<%=s.getId()%>">
+                                                        <button type="submit">save</button>
+                                                </td>
                                             </tr>
                                             </form>
                                            <%
+                                                   i++;
                                                }
                                            %>
                                             </tbody>

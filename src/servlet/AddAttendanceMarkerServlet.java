@@ -34,7 +34,7 @@ public class AddAttendanceMarkerServlet extends HttpServlet {
 
         AttendanceMarkerService service = new AttendanceMarkerService();
         service.addAttendance(attendanceMarker);
-        response.sendRedirect("indexhome.jsp");
+        response.sendRedirect("attendance_markers_list.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

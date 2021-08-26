@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class Attendance {
@@ -9,11 +10,11 @@ public class Attendance {
     private String name;
     private String subject;
     private String batch;
-    private Timestamp timestamp;
+    private Date timestamp;
     private int status;
 
 
-    public Attendance(int id, int studentId, String subject, Timestamp timestamp, int status) {
+    public Attendance(int id, int studentId, String subject, Date timestamp, int status) {
         this.id = id;
         this.studentId = studentId;
         this.subject = subject;
@@ -47,11 +48,11 @@ public class Attendance {
         this.subject = subject;
     }
 
-    public Timestamp getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 
