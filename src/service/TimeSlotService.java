@@ -5,10 +5,8 @@ import model.TimeSlot;
 import util.DBConnectionUtil;
 import util.QueryTimeAndClass;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.servlet.jsp.jstl.sql.Result;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class TimeSlotService implements ITimeSlot {
@@ -146,5 +144,35 @@ public class TimeSlotService implements ITimeSlot {
             e.printStackTrace();
         }
         return list;
+    }
+    public boolean check(String start, String end, String classroom){
+
+        boolean check = false;
+
+        try {
+
+            con = DBConnectionUtil.getConnection();
+            String sql="select count (id)  from timeslot where classroom ='"+classroom+"'  and id in(select id from timeslot where starttime >='"+start+"' or endtime < '"+end+"' )";
+
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+
+            System.out.println(rs.getString(1));
+
+
+
+            if(rs.getString(1) != null){
+                check =true;
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return check;
+
+
     }
 }
