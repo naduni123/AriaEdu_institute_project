@@ -298,15 +298,17 @@
                 <div class="card">
                     <h2 class="card-header">Add Classroom</h2>
                     <div class="card-body">
-                        <form class="form" name="form" action="<%=request.getContextPath()%>/AddClassroomServlet" method="post">
+                        <form class="form" id="form" onsubmit="return validateform()" action="<%=request.getContextPath()%>/AddClassroomServlet" method="post">
                             <div class="row g-3">
                                 <div class="divCol">
                                     <label class="col-form-label">Hall name</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <input type="text" name="name" id="name" value="" class="form-control">
+                                    <h5 id="namecheck" style="color:red"></h5>
                                 </div>
                                 <div class="divCol">
                                     <label class="col-form-label">Floor</label>
                                     <input type="text" name="floor" id="floor" class="form-control">
+                                    <h5 id="floorcheck" style="color:red"></h5>
                                 </div>
                             </div>
 
@@ -314,19 +316,22 @@
                                 <div class="divCol">
                                     <label class="col-form-label">Capacity</label>
                                     <input type="number" id="capacity" name="capacity" class="form-control">
+                                    <h5 id="capacitycheck" style="color:red"></h5>
                                 </div>
                                 <div class="divCol">
                                     <label class="col-form-label">A/C or non A/C</label>
                                     <select class="form-control" id="ac" name="ac">
+                                        <option value="">select feature</option>
                                         <option value="A/C">A/C</option>
                                         <option value="non A/C">non A/C</option>
                                     </select>
+                                    <h5 id="acheck" style="color:red"></h5>
                                 </div>
                             </div>
                             <div class="row g-3">
                                 <div class="btndiv">
-                                    <a href="#" class="btn btn-rounded btn-danger">Reset</a>
-                                    <button type="submit" class="btn btn-rounded btn-primary">Add</button>
+                                    <a onclick="reset()" class="btn btn-rounded btn-danger">Reset</a>
+                                    <button type="submit" id="btnsave" name="btnsave" class="btn btn-rounded btn-primary">Add</button>
                                 </div>
                             </div>
                         </form>
@@ -391,6 +396,8 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <!--custom -->
+        <script src="assets/libs/js/addclass.js"></script>
 
 </body>
 </html>

@@ -1,10 +1,8 @@
-<%@ page import="service.ClassroomService" %>
-<%@ page import="model.Classroom" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Kavindu Balasooriya
   Date: 8/16/2021
-  Time: 9:43 PM
+  Time: 4:51 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,7 +22,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Classroom List</title>
+    <title>Add Classroom</title>
 </head>
 <body>
 <!-- ============================================================== -->
@@ -277,12 +275,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Classroom List</h2>
+                            <h2 class="pageheader-title">ClassRoom</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">classroom list</li>
+                                        <li class="breadcrumb-item active" aria-current="page">ClassRoom</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -294,56 +292,58 @@
                 <!-- ============================================================== -->
 
                 <!-- ========================================your contents start here-------------->
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card">
-                        <h5 class="card-header">Classrooms</h5>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered first">
 
-                                    <% ClassroomService service = new ClassroomService();
 
-                                        ArrayList<Classroom> list=  service.viewClassroom(); %>
-
-                                    <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Floor</th>
-                                        <th>Capacity</th>
-                                        <th>A/C</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <%for(Classroom i:list){ %>
-                                    <tr>
-                                        <td id="id"><%= i.getId() %></td>
-                                        <td id="name"><%= i.getName() %></td>
-                                        <td id="floor"><%= i.getFloor() %></td>
-                                        <td id="capacity"><%= i.getCapacity() %></td>
-                                        <td id="ac"><%= i.getAc() %></td>
-                                        <td>
-                                            <a href="update_classroom.jsp"><i class="fas fa-edit"></i></a>
-                                        </td>
-                                    </tr>
-                                    <%} %>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <<th>Id</th>
-                                        <th>Name</th>
-                                        <th>Floor</th>
-                                        <th>Capacity</th>
-                                        <th>A/C</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                    </tfoot>
-                                </table>
+                <!--basic form-->
+                <div class="card">
+                    <h2 class="card-header">Update Classroom</h2>
+                    <div class="card-body">
+                        <form class="form" id="form" onsubmit="return validateform()" action="<%=request.getContextPath()%>/AddClassroomServlet" method="post">
+                            <div class="row g-3">
+                                <div class="divCol">
+                                    <label class="col-form-label">Hall name</label>
+                                    <input type="text" name="name" id="name" value="" class="form-control">
+                                    <h5 id="namecheck" style="colour:red"></h5>
+                                </div>
+                                <div class="divCol">
+                                    <label class="col-form-label">Floor</label>
+                                    <input type="text" name="floor" id="floor" class="form-control">
+                                    <h5 id="floorcheck" style="colour:red"></h5>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="row g-3">
+                                <div class="divCol">
+                                    <label class="col-form-label">Capacity</label>
+                                    <input type="number" id="capacity" name="capacity" class="form-control">
+                                    <h5 id="capacitycheck" style="colour:red"></h5>
+                                </div>
+                                <div class="divCol">
+                                    <label class="col-form-label">A/C or non A/C</label>
+                                    <select class="form-control" id="ac" name="ac">
+                                        <option value="">select feature</option>
+                                        <option value="A/C">A/C</option>
+                                        <option value="non A/C">non A/C</option>
+                                    </select>
+                                    <h5 id="acheck" style="colour:red"></h5>
+                                </div>
+                            </div>
+                            <div class="row g-3">
+                                <div class="btndiv">
+                                    <a href="#" class="btn btn-rounded btn-danger">Reset</a>
+                                    <button type="submit" id="btnsave" name="btnsave" class="btn btn-rounded btn-primary">Update</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+
+
+
+
+
+
                 </div>
+
 
                 <!-- ============================================================== -->
                 <!-- footer -->
@@ -396,6 +396,8 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <!--custom -->
+        <script src="assets/libs/js/addclass.js"></script>
 
 </body>
 </html>

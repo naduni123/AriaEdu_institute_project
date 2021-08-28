@@ -1,10 +1,8 @@
-<%@ page import="service.ClassroomService" %>
-<%@ page import="model.Classroom" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: Kavindu Balasooriya
-  Date: 8/16/2021
-  Time: 9:43 PM
+  Date: 7/25/2021
+  Time: 6:03 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,7 +22,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Classroom List</title>
+    <title>AriaEdu</title>
 </head>
 <body>
 <!-- ============================================================== -->
@@ -218,7 +216,7 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Time Tables</a>
+                            <a class="nav-link" href="timetabledashboard.jsp" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Time Tables</a>
                             <div id="submenu-5" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -238,7 +236,7 @@
                         </li>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-hospital-alt"></i>Class Room</a>
+                            <a class="nav-link" href="classdashboard.jsp" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-hospital-alt"></i>Class Room</a>
                             <div id="submenu-6" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -277,12 +275,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Classroom List</h2>
+                            <h2 class="pageheader-title">Classroom DashBoard</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">classroom list</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Classroom DashBoard</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -294,53 +292,26 @@
                 <!-- ============================================================== -->
 
                 <!-- ========================================your contents start here-------------->
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2 class="card-title">Classroom Dashboard</h2>
+                <div class="row g-3">
                     <div class="card">
-                        <h5 class="card-header">Classrooms</h5>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered first">
-
-                                    <% ClassroomService service = new ClassroomService();
-
-                                        ArrayList<Classroom> list=  service.viewClassroom(); %>
-
-                                    <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Floor</th>
-                                        <th>Capacity</th>
-                                        <th>A/C</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <%for(Classroom i:list){ %>
-                                    <tr>
-                                        <td id="id"><%= i.getId() %></td>
-                                        <td id="name"><%= i.getName() %></td>
-                                        <td id="floor"><%= i.getFloor() %></td>
-                                        <td id="capacity"><%= i.getCapacity() %></td>
-                                        <td id="ac"><%= i.getAc() %></td>
-                                        <td>
-                                            <a href="update_classroom.jsp"><i class="fas fa-edit"></i></a>
-                                        </td>
-                                    </tr>
-                                    <%} %>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <<th>Id</th>
-                                        <th>Name</th>
-                                        <th>Floor</th>
-                                        <th>Capacity</th>
-                                        <th>A/C</th>
-                                        <th>Edit</th>
-                                    </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                        <br><br><br><br><br>
+                        <div class="fullwidth">
+                            <a href="" class="center1">Classroom Status</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="card">
+                        <br><br><br><br><br>
+                        <div class="halfwidth">
+                            <a href="classroomlist.jsp" class="card-text center">See Classroom</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <br><br><br><br><br>
+                        <div class="halfwidth">
+                            <a href="addclassroom.jsp" class="card-text center">Add Classroom</a>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,13 @@
-<%@ page import="service.ClassroomService" %>
-<%@ page import="model.Classroom" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="model.Loading" %>
+<%@ page import="service.LoadingService" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.TimeSlot" %>
+<%@ page import="service.TimeSlotService" %>
+<%@ page import="model.Batch" %><%--
   Created by IntelliJ IDEA.
   User: Kavindu Balasooriya
-  Date: 8/16/2021
-  Time: 9:43 PM
+  Date: 8/21/2021
+  Time: 4:42 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -24,7 +27,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Classroom List</title>
+    <title>AriaEdu</title>
 </head>
 <body>
 <!-- ============================================================== -->
@@ -277,12 +280,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Classroom List</h2>
+                            <h2 class="pageheader-title">Student TimeTable</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">classroom list</li>
+                                        <li class="breadcrumb-item active" aria-current="page">student time table</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -296,47 +299,106 @@
                 <!-- ========================================your contents start here-------------->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
+                        <div class="card-body">
+                            <form action="" method="get">
+                            <div class="row g-3">
+                                <div class="divCol">
+                                    <%
+                                        LoadingService service = new LoadingService();
+                                        ArrayList<Batch> tempBatch =service.viewBatch();
+
+                                    %>
+                                    <div class="form-group">
+                                        <label for="batch">Teacher</label>
+                                        <select class="form-control" id="batch" name="batch">
+                                            <option value="0">batch</option>
+                                            <%
+                                                for(Batch batch : tempBatch){
+                                            %>
+                                            <option value="<%=batch.getId()%>"><%=batch.getName()%></option>
+                                            <%
+                                                }
+                                            %>
+                                        </select>
+                                    </div>
+                                    <div class="btndiv">
+                                        <button type="submit" class="btn btn-rounded btn-primary">search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card">
                         <h5 class="card-header">Classrooms</h5>
                         <div class="card-body">
+                            <%
+                                ArrayList<TimeSlot> tempTime = new ArrayList<>();
+                                TimeSlotService timeSlotService = new TimeSlotService();
+                                LoadingService loadingService = new LoadingService();
+
+
+
+                                int teacherId = 0;
+                               int batchId = Integer.parseInt(request.getParameter("batch"));
+                               System.out.println(teacherId);
+
+                                if(batchId != 0){
+//
+                                    tempTime = timeSlotService.viewTimeByBatchID(batchId);
+                               }else {
+
+                                  tempTime = timeSlotService.viewTime();
+                               }
+                            %>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered first">
-
-                                    <% ClassroomService service = new ClassroomService();
-
-                                        ArrayList<Classroom> list=  service.viewClassroom(); %>
-
                                     <thead>
                                     <tr>
-                                        <th>Id</th>
-                                        <th>Name</th>
-                                        <th>Floor</th>
-                                        <th>Capacity</th>
-                                        <th>A/C</th>
-                                        <th>Edit</th>
+                                        <th>Subject</th>
+                                        <th>Day</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>Teacher</th>
+                                        <th>Hall</th>
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <%for(Classroom i:list){ %>
+                                    <%
+                                        for(TimeSlot timeSlot :tempTime){
+
+                                           // String bName = loadingService.findBatch(timeSlot.getBatch());
+                                         //   String hName =loadingService.findClass(timeSlot.getClassroom());
+                                          //  String tName =loadingService.findTeacher(timeSlot.getTeacher());
+
+                                    %>
                                     <tr>
-                                        <td id="id"><%= i.getId() %></td>
-                                        <td id="name"><%= i.getName() %></td>
-                                        <td id="floor"><%= i.getFloor() %></td>
-                                        <td id="capacity"><%= i.getCapacity() %></td>
-                                        <td id="ac"><%= i.getAc() %></td>
+                                        <td><%=timeSlot.getSubject()%></td>
+                                        <td><%=timeSlot.getDate()%></td>
+                                        <td><%=timeSlot.getStartTime()%></td>
+                                        <td><%=timeSlot.getEndTime()%></td>
+                                        <td><%=timeSlot.getTeacher()%></td>
+                                        <td><%=timeSlot.getClassroom()%></td>
                                         <td>
-                                            <a href="update_classroom.jsp"><i class="fas fa-edit"></i></a>
+                                            <a href="update_time_slot.jsp"><i class="fas fa-edit"></i></a>
+                                            <a><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
-                                    <%} %>
+                                    <%
+                                        }
+                                    %>
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <<th>Id</th>
-                                        <th>Name</th>
-                                        <th>Floor</th>
-                                        <th>Capacity</th>
-                                        <th>A/C</th>
-                                        <th>Edit</th>
+                                        <th>Subject</th>
+                                        <th>Day</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
+                                        <th>Teacher</th>
+                                        <th>Hall</th>
+                                        <th>Action</th>
                                     </tr>
                                     </tfoot>
                                 </table>
@@ -396,6 +458,5 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
-
 </body>
 </html>

@@ -80,7 +80,7 @@ public class LoadingService {
 
   }
 
- /* public String findTeacher(int id){
+  public String findTeacher(int id){
 
       String name=" ";
 
@@ -97,6 +97,8 @@ public class LoadingService {
           name= rs.getString(2);
 
 
+
+
       }
       catch (ClassNotFoundException | SQLException e){
           e.printStackTrace();
@@ -105,14 +107,14 @@ public class LoadingService {
       return  name;
   }
 
-    public String find(int id){
+    public String findBatch(int id){
 
         String name=" ";
 
         try{
 
             con = DBConnectionUtil.getConnection();
-            String sql= QueryTimeAndClass.FIND_TEACHER+id;
+            String sql= QueryTimeAndClass.FIND_BATCH+id;
 
             preparedStatement = con.prepareStatement(sql);
             System.out.println(preparedStatement);
@@ -120,6 +122,7 @@ public class LoadingService {
             ResultSet rs = preparedStatement.executeQuery();
 
             name= rs.getString(2);
+            System.out.println(name);
 
 
         }
@@ -130,5 +133,31 @@ public class LoadingService {
         return  name;
     }
 
-  */
+    public String findClass(int id){
+
+        String name=" ";
+
+        try{
+
+            con = DBConnectionUtil.getConnection();
+            String sql= QueryTimeAndClass.FIND_CLASS+id;
+
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            name= rs.getString(2);
+
+
+
+        }
+        catch (ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+        }
+
+        return  name;
+    }
+
+
 }
