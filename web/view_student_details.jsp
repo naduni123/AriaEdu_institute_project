@@ -164,7 +164,7 @@
                             Menu
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user"></i>Student Management</a>
+                            <a class="nav-link" href="update_student_details.jsp" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user"></i>Student Management</a>
                             <div id="submenu-2" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -284,8 +284,8 @@
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Student Management</a></li>
+                                        <li class="breadcrumb-item"><a href="indexhome.jsp" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="student_management_dashboard.jsp" class="breadcrumb-link">Student Management</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">View Student Details</li>
                                     </ol>
                                 </nav>
@@ -307,7 +307,7 @@
                             <h5 class="card-header">View Student Details</h5>
                             <div class="card-body">
                                 <div class="bottombtn" align="right">
-                                    <button href="#" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-user-plus" style="color: grey"></i></button>
+                                    <a href="add_student.jsp" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-user-plus" style="color: grey"></i></a>
                                     <button  href="#" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-file-pdf" style="color: grey"></i></button>
                                     <button  href="#" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-sync-alt" style="color: grey"></i></button>
                                 </div>
@@ -361,7 +361,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                                Copyright © 2021 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">AriaEdu</a>.
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="text-md-right footer-links d-none d-sm-block">

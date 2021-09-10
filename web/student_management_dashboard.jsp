@@ -295,7 +295,7 @@ To change this template use File | Settings | File Templates.
                     <div class="card">
                         <div class="card-body">
                                 <h1 class="card-title border-bottom pb-2" style="text-align: center">STUDENTS</h1>
-                                <h2 class="card-text" style="color: darkgoldenrod; text-align: center;">3700</h2>
+                                <h2 class="card-text" style="color: darkgoldenrod; text-align: center;">12</h2>
                         </div>
                     </div>
 
@@ -304,7 +304,7 @@ To change this template use File | Settings | File Templates.
                             <div class="card">
                                 <div class="card-body">
                                     <h2 class="card-title border-bottom pb-2" style="text-align: center">BIOLOGY</h2>
-                                    <h3 class="card-text" style="color: green; text-align: center;">1000</h3>
+                                    <h3 class="card-text" style="color: green; text-align: center;">6</h3>
                                 </div>
                             </div>
                         </div>
@@ -312,7 +312,7 @@ To change this template use File | Settings | File Templates.
                             <div class="card">
                                 <div class="card-body">
                                     <h2 class="card-title border-bottom pb-2" style="text-align: center">MATHS</h2>
-                                    <h3 class="card-text" style="color: darkblue; text-align: center;">1200</h3>
+                                    <h3 class="card-text" style="color: darkblue; text-align: center;">5</h3>
                                 </div>
                             </div>
                         </div>
@@ -320,7 +320,7 @@ To change this template use File | Settings | File Templates.
                             <div class="card">
                                 <div class="card-body">
                                     <h2 class="card-title border-bottom pb-2" style="text-align: center">CHEMISTRY</h2>
-                                    <h3 class="card-text" style="color: purple; text-align: center;">1300</h3>
+                                    <h3 class="card-text" style="color: purple; text-align: center;">7</h3>
                                 </div>
                             </div>
                         </div>
@@ -328,7 +328,7 @@ To change this template use File | Settings | File Templates.
                             <div class="card">
                                 <div class="card-body">
                                     <h2 class="card-title border-bottom pb-2" style="text-align: center">PHYSICS</h2>
-                                    <h3 class="card-text" style="color: darkorange; text-align: center;">1200</h3>
+                                    <h3 class="card-text" style="color: darkorange; text-align: center;">7</h3>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +341,7 @@ To change this template use File | Settings | File Templates.
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                                Copyright © 2021 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">AriaEdu</a>.
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="text-md-right footer-links d-none d-sm-block">

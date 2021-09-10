@@ -290,7 +290,7 @@
                             Menu
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user"></i>Student Management</a>
+                            <a class="nav-link" href="view_student_details.jsp" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user"></i>Student Management</a>
                             <div id="submenu-2" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -410,8 +410,8 @@
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Student Management</a></li>
+                                        <li class="breadcrumb-item"><a href="indexhome.jsp" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="student_management_dashboard.jsp" class="breadcrumb-link">Student Management</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">Add Student</li>
                                     </ol>
                                 </nav>
@@ -484,7 +484,7 @@
                                 </div>
 
                                 <!-- Email -->
-                                <div class="divCol3">
+                                <div class="divCol3" align="right">
                                     <label class="col-form-label">Email *</label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                                 </div>
