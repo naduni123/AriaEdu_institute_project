@@ -3,6 +3,7 @@ package service;
 import model.Batch;
 import model.Classroom;
 import model.Loading;
+import model.TimeSlot;
 import util.DBConnectionUtil;
 import util.QueryTimeAndClass;
 
@@ -157,6 +158,39 @@ public class LoadingService {
         }
 
         return  name;
+    }
+
+    public TimeSlot RetrieveTimeSlot(int id){
+
+      TimeSlot timeSlot = new TimeSlot();
+        try{
+
+            con = DBConnectionUtil.getConnection();
+            String sql= QueryTimeAndClass.FIND_TIME+id;
+
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(preparedStatement);
+
+            ResultSet rs = preparedStatement.executeQuery();
+
+            timeSlot.setSubject(rs.getString(6));
+            timeSlot.setDate(rs.getString(3));
+            timeSlot.setStartTime(rs.getString(4));
+            timeSlot.setEndTime(rs.getString(5));
+            timeSlot.setClassroom(rs.getInt(8));
+            timeSlot.setBatch(rs.getInt(2));
+            timeSlot.setId(rs.getInt(1));
+
+
+
+
+        }
+        catch (ClassNotFoundException | SQLException e){
+            e.printStackTrace();
+        }
+
+
+      return timeSlot;
     }
 
 
