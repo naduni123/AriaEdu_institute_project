@@ -295,7 +295,7 @@
 
                 <!-- ========================================your contents start here-------------->
                 <div class="card">
-                    <h2 class="card-header">Marke Attendance</h2>
+                    <h2 class="card-header">Mark Attendance</h2>
                     <div class="card-body">
                         <%
                             LoadingService service = new LoadingService();
@@ -401,9 +401,12 @@
                                                 </td>
                                                 <td>
                                                         <input id="sid" type="hidden" name="sid" value="<%=s.getId()%>">
-                                                        <button type="submit">save</button>
+                                                        <!--<button type="submit">save</button>-->
+                                                        <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
                                                 </td>
                                             </tr>
+                                                <input id="sub" type="hidden" name="sub" value="<%=s.getTempSubject()%>">
+                                                <input id="bat" type="hidden" name="bat" value="<%=s.getBatch()%>">
                                             </form>
                                            <%
                                                    i++;

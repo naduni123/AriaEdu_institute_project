@@ -285,7 +285,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Bland</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Attendance History</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -298,7 +298,7 @@
 
                 <!-- ========================================your contents start here-------------->
                 <div class="card">
-                    <h2 class="card-header">Marke Attendance</h2>
+                    <h2 class="card-header">Attendance History</h2>
                     <div class="card-body">
                         <%
                             LoadingService service = new LoadingService();
@@ -391,8 +391,8 @@
                                                     System.out.println(check);
                                             %>
                                                 <tr>
-                                                    <td  ><li value="<%=a.getId()%>" id="sid" name="sid"></li></td>
-                                                    <td ><h3 id="name" name="name"><%=a.getName()%></h3></td>
+                                                    <td  value="<%=a.getId()%>" id="sid" name="sid"><%=a.getId()%></td>
+                                                    <td id="name" name="name"><%=a.getName()%></td>
                                                     <td >
                                                         <%
                                                             if(check==1){

@@ -97,7 +97,7 @@ public class AttendanceMarkerService implements IAttendanceMarker{
 
                 String tempsubject="";
                 while(rs2.next()){
-
+                    System.out.println("in loop");
                     tempsubject =tempsubject+ rs2.getString(4)+" ";
                 }
 

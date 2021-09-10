@@ -25,10 +25,10 @@ public class AddAttendanceServlet extends HttpServlet {
         attendance.setId(Integer.parseInt(request.getParameter("sid")));
         System.out.println("servlet " + attendance.getId());
         String temp = request.getParameter("status");
-        attendance.setBatch(request.getParameter("batch"));
-        System.out.println(attendance.getBatch());
+        attendance.setBatch(request.getParameter("bat"));
+        System.out.println("htrh"+ attendance.getBatch());
 
-        attendance.setSubject(request.getParameter("subject"));
+        attendance.setSubject(request.getParameter("sub"));
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date(System.currentTimeMillis());
 
@@ -42,6 +42,7 @@ public class AddAttendanceServlet extends HttpServlet {
         AttendanceService service = new AttendanceService();
         service.addAttendance(attendance);
         response.sendRedirect("marke_attendance.jsp");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

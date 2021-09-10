@@ -1,13 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
-  User: User
-  Date: 8/15/2021
-  Time: 4:38 PM
+  User: Hansaka Dilshan
+  Date: 8/26/2021
+  Time: 8:47 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!doctype html>
-<html lang="en">
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -18,24 +17,134 @@
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/libs/css/naduni.css">
+    <link rel="stylesheet" href="assets/libs/css/kavindulocal.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
     <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"/>
 
+    <!-- Add Student Form Validation -->
+    <script>
+        //validate function
+        function validate() {
+            var firstName = document.forms["form"]["firstName"].value;
+            var lastName = document.forms["form"]["lastName"].value;
+            var dob = document.forms["form"]["dob"].value;
+            var nic = document.forms["form"]["nic"].value;
+            var address = document.forms["form"]["address"].value;
+            var gender = document.forms["form"]["gender"].value;
+            var phone = document.forms["form"]["phone"].value;
+            var email = document.forms["form"]["email"].value;
+            var admissionDate = document.forms["form"]["admissionDate"].value;
+            var batch = document.forms["form"]["batch"].value;
+            if (isAlphebatic(firstName)) {
+                if (isAlphebatic(lastName)) {
+                    if (isNumeric(phone)) {
+                        if (emailValidation(email)) {
+                            return true;
+                        }else {
+                            return false;
+                        }
+                    }else {
+                        return false;
+                    }
+                }else {
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+        <!-- Empty Validation -->
+        function isEmpty(elemValue, field) {
+            if (elemValue == " " || elemValue == null) {
+                alert("You cannot have " + field + "field empty");
+                return true;
+            } else {
+                return false;
+            }
+        }
+        <!-- First Name Validation -->
+        function isAlphebatic(elemValue) {
+            var exp = /^[a-zA-Z]+$/;
+            if (!isEmpty(elemValue, "firstName")) {
+                if (elemValue.match(exp)) {
+                    return true;
+                } else {
+                    alert("Enter only text for you first name");
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        <!-- Last Name Validation -->
+        function isAlphebatic(elemValue) {
+            var exp = /^[a-zA-Z]+$/;
+            if (!isEmpty(elemValue, "lastName")) {
+                if (elemValue.match(exp)) {
+                    return true;
+                } else {
+                    alert("Enter only text for you last name");
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        <!-- Email Validation -->
+        function emailValidation(elemValue) {
+            if (!isEmpty(elemValue, "email")) {
+                var atops = elemValue.indexOf("@");
+                var dotops = elemValue.indexOf(".");
+                if (atops < 1 || dotops+2 >= elemValue.length || atops+2 > dotops) {
+                    alert("Enter a valid email");
+                    return false;
+                } else{
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        }
+        <!-- Phone Number Validation -->
+        function isNumeric(elemValue) {
+            if (!isEmpty(elemValue, "phone")) {
+                var exp=/^[0-9]+$/;
+                if (elemValue.match(exp)) {
+                    return true;
+                } else {
+                    alert("Enter a valid phone number");
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        function clearFields() {
+            document.getElementById("firstName").value="";
+            document.getElementById("lastName").value="";
+            document.getElementById("dob").value="";
+            document.getElementById("nic").value="";
+            document.getElementById("address").value="";
+            document.getElementById("phone").value="";
+            document.getElementById("email").value="";
+            document.getElementById("admissionDate").value="";
+        }
+        function DisabledCheck() {
+            document.getElementById("subjectTwo").disabled = true;
+        }
+        function DisabledCheckTwo() {
+            document.getElementById("subjectOne").disabled = true;
+        }
+    </script>
 
-
-
-    <title>AriaEdu</title>
+    <title>AriaEdu | Update Student</title>
 </head>
 
 <body>
-<script src="assets/libs/js/marker.js"></script>
-
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -286,12 +395,13 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Attendance Management</h2>
+                            <h2 class="pageheader-title">Update Student</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Add Attendance Marker</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Attendance Management</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Update Attendance Marker</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -303,119 +413,83 @@
                 <!-- ============================================================== -->
 
                 <!-- ========================================your contents start here-------------->
-
-
-                <!--basic form-->
+                <!-- Add Student Form -->
                 <div class="card">
-                    <h2 class="card-header">Add Attendance Marker</h2>
+                    <h2 class="card-header">Update Attendance Marker Details</h2>
                     <div class="card-body">
-                        <form id="form"  onsubmit="return validate1()"action="<%=request.getContextPath()%>/AddAttendanceMarkerServlet"  method="post">
+                        <form class="form" name="form" action="<%=request.getContextPath()%>/AddStudentServlet" method="post" onsubmit="return validate()">
                             <div class="row g-3">
-                                <div class="divCol">
-                                    <label id="labelfname" class="col-form-label">First Name</label>
-                                    <input required type="text" name="fname" id="fname" value="" class="form-control">
-                                    <small id=result"></small>
-                                </div>
-                                <div class="divCol">
-                                    <label id="labellname" class="col-form-label">Last Name</label>
-                                    <input required type="text" name="lname" id="lname" class="form-control">
-                                    <small id=result"></small>
-                                </div>
-                            </div>
-
-                            <div class="row g-3">
-                                <div class="divCol">
-                                    <label id ="labeldob" class="col-form-label">Date Of Birth</label>
-                                    <input required type="Date" name="dob" id="dob" class="form-control">
-                                    <small id=result"></small>
-                                </div>
-                                <div class="divCol">
-                                    <label id="labelnic" class="col-form-label">NIC</label>
-                                    <input required type="text" name="nic" id="nic" class="form-control">
-                                    <small id=result"></small>
-                                </div>
-                            </div>
-
-                            <div class="row g-3">
+                                <!-- Address -->
                                 <div class="divCol2">
-                                    <label id="labeladdress" class="col-form-label">Address</label>
-                                    <input required type="text" name="address" id="address" class="form-control">
-                                    <small id=result"></small>
+                                    <label class="col-form-label">Address *</label>
+                                    <input type="text" name="address" id="address" class="form-control" placeholder="Address" required>
                                 </div>
                             </div>
 
                             <div class="row g-3">
-                                <div class="divCol3">
-                                    <label class="col-form-label">Gender</label><br>
-                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="gender" id="gender" value="male"class="custom-control-input"><span class="custom-control-label">Male</span>
-                                    </label>
-                                    <label class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" name="gender"id="gender" value="female"class="custom-control-input"><span class="custom-control-label">Female</span>
-                                    </label>
+                                <!-- Phone Number -->
+                                <div class="divCol">
+                                    <label class="col-form-label">Phone Number *</label>
+                                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
                                 </div>
 
-                                <div class="divCol3">
-                                    <label ld="labeltele" class="col-form-label">Phone Number</label>
-                                    <input required type="tel" name="Phone" id="Phone" class="form-control">
-                                    <small id=result"></small>
-                                </div>
-
-                                <div class="divCol3">
-                                    <label id="labelemail" class="col-form-label">Email</label>
-                                    <input required type="email" name="email" id="email" class="form-control">
-                                    <small id=result"></small>
+                                <!-- Email -->
+                                <div class="divCol">
+                                    <label class="col-form-label">Email *</label>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
 
                             <div class="row g-3">
-                                <div class="divCol2">
-                                    <div class="form-group">
-                                        <label for="input-select">Teacher</label>
-                                        <select class="form-control" id="teacher" name="teacher">
-                                            <option value="ajith">Ajith Pushpakumara</option>
-                                            <option value="nilantha">Nilantha Jayasooriya</option>
-                                            <option value="janaka">Janaka Abewardana</option>
-
-                                        </select>
-                                    </div>
+                                <!-- Subject/s -->
+                                <div class="divCol4">
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectOne" value="Biology" type="checkbox" class="custom-control-input" onclick="DisabledCheck()"><span class="custom-control-label">Biology</span>
+                                    </label>
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectTwo" value="Maths" type="checkbox" class="custom-control-input" onclick="DisabledCheckTwo()"><span class="custom-control-label">Maths</span>
+                                    </label>
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectThree" value="Chemistry" type="checkbox" class="custom-control-input"><span class="custom-control-label">Chemistry</span>
+                                    </label>
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectFour" value="Physics" type="checkbox" class="custom-control-input"><span class="custom-control-label">Physics</span>
+                                    </label>
                                 </div>
                             </div>
 
                             <div class="row g-3">
                                 <div class="divCol4">
-                                    <label class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" checked="" class="custom-control-input" id="subject" name="subject" value="biology"><span class="custom-control-label">Biology</span>
-                                    </label>
-                                    <label class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="subject" name="subject" value="maths"><span class="custom-control-label">Maths</span>
-                                    </label>
-                                    <label class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="subject" name="subject" value="chemistry"><span class="custom-control-label">Chemistry</span>
-                                    </label>
-                                    <label class="custom-control custom-checkbox custom-control-inline">
-                                        <input type="checkbox" class="custom-control-input" id="subject" name="subject" value="physics"><span class="custom-control-label">Physics</span>
-                                    </label>
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="status">Status *</label>
+                                        <select class="form-control" name="status" id="status" required>
+                                            <option value="ajith" selected>Ajith Pushpakumara</option>
+                                            <option value="nilantha">Nilantha Jayasooriya</option>
+                                            <option value="duminda">Duminda Rathnayaka</option>
+                                            <option value="janaka">Janaka Abewardhana</option>
+                                            <option value="hemal">Hemal Jayasingha</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="bottombtn">
-                                <button href="#" class="btn btn-rounded btn-danger">Reset</button>
-                                <button id="btnsave" type="submit" class="btn btn-rounded btn-primary">Add</button>
+
+                            <div class="btndiv" align="right">
+                                <!-- Update Button-->
+                                <button type="submit" class="btn btn-rounded btn-primary">Update</button>
                             </div>
                         </form>
                     </div>
+                </div>
+                <!-- End Add Student Form -->
 
-
-
-
-                    <!-- ============================================================== -->
+                <!-- ============================================================== -->
                 <!-- footer -->
                 <!-- ============================================================== -->
                 <div class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                                Copyright © 2021 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">AriaEdu</a>.
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="text-md-right footer-links d-none d-sm-block">
@@ -459,9 +533,5 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
-
-
-
 </body>
-
 </html>
