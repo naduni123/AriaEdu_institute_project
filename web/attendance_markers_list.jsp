@@ -292,7 +292,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">classroom list</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Attendance Markers List</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -308,7 +308,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="bottombtn" align="right">
-                                <button href="#" class="btn btn-rounded btn-danger">ADD</button>
+                                <button href="add_attendance_marker.jsp" class="btn btn-rounded btn-danger">ADD</button>
                                 <button  href="#" class="btn btn-rounded btn-primary">PRINT</button>
                             </div>
                             <br>
@@ -336,7 +336,7 @@
                                         <td id="subject"><%= i.getList() %></td>
                                         <td id="Teacher"><%= i.getTeacher() %></td>
                                         <td> &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a  href="edit? >" ><i class= "fa fa-pencil" aria-hidden ="true" style="color:darkblue;width:20px"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a  href="update_attendance_marker.jsp" ><i class= "fa fa-pencil" aria-hidden ="true" style="color:darkblue;width:20px"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
                                             <a  href="delete?>" ><i class="fa fa-trash-o" aria-hidden="true" style="color:Red"></i></a>
                                         </td>
                                     </tr>
