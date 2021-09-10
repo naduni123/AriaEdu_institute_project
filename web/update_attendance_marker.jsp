@@ -1,12 +1,12 @@
-<%@ page import="service.LoadingService" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.Base64" %>
-<%@ page import="model.Batch" %>
-<%@ page import="service.AttendanceService" %>
-<%@ page import="model.Student" %>
-<%@ page import="servlet.MarkAttendanceStudentListServlet" %>
-<!doctype html>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: Hansaka Dilshan
+  Date: 8/26/2021
+  Time: 8:47 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -17,13 +17,131 @@
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/libs/css/naduni.css">
+    <link rel="stylesheet" href="assets/libs/css/kavindulocal.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
     <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>AriaEdu</title>
+
+    <!-- Add Student Form Validation -->
+    <script>
+        //validate function
+        function validate() {
+            var firstName = document.forms["form"]["firstName"].value;
+            var lastName = document.forms["form"]["lastName"].value;
+            var dob = document.forms["form"]["dob"].value;
+            var nic = document.forms["form"]["nic"].value;
+            var address = document.forms["form"]["address"].value;
+            var gender = document.forms["form"]["gender"].value;
+            var phone = document.forms["form"]["phone"].value;
+            var email = document.forms["form"]["email"].value;
+            var admissionDate = document.forms["form"]["admissionDate"].value;
+            var batch = document.forms["form"]["batch"].value;
+            if (isAlphebatic(firstName)) {
+                if (isAlphebatic(lastName)) {
+                    if (isNumeric(phone)) {
+                        if (emailValidation(email)) {
+                            return true;
+                        }else {
+                            return false;
+                        }
+                    }else {
+                        return false;
+                    }
+                }else {
+                    return false;
+                }
+            }else {
+                return false;
+            }
+        }
+        <!-- Empty Validation -->
+        function isEmpty(elemValue, field) {
+            if (elemValue == " " || elemValue == null) {
+                alert("You cannot have " + field + "field empty");
+                return true;
+            } else {
+                return false;
+            }
+        }
+        <!-- First Name Validation -->
+        function isAlphebatic(elemValue) {
+            var exp = /^[a-zA-Z]+$/;
+            if (!isEmpty(elemValue, "firstName")) {
+                if (elemValue.match(exp)) {
+                    return true;
+                } else {
+                    alert("Enter only text for you first name");
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        <!-- Last Name Validation -->
+        function isAlphebatic(elemValue) {
+            var exp = /^[a-zA-Z]+$/;
+            if (!isEmpty(elemValue, "lastName")) {
+                if (elemValue.match(exp)) {
+                    return true;
+                } else {
+                    alert("Enter only text for you last name");
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        <!-- Email Validation -->
+        function emailValidation(elemValue) {
+            if (!isEmpty(elemValue, "email")) {
+                var atops = elemValue.indexOf("@");
+                var dotops = elemValue.indexOf(".");
+                if (atops < 1 || dotops+2 >= elemValue.length || atops+2 > dotops) {
+                    alert("Enter a valid email");
+                    return false;
+                } else{
+                    return true;
+                }
+            } else {
+                return false;
+            }
+        }
+        <!-- Phone Number Validation -->
+        function isNumeric(elemValue) {
+            if (!isEmpty(elemValue, "phone")) {
+                var exp=/^[0-9]+$/;
+                if (elemValue.match(exp)) {
+                    return true;
+                } else {
+                    alert("Enter a valid phone number");
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        function clearFields() {
+            document.getElementById("firstName").value="";
+            document.getElementById("lastName").value="";
+            document.getElementById("dob").value="";
+            document.getElementById("nic").value="";
+            document.getElementById("address").value="";
+            document.getElementById("phone").value="";
+            document.getElementById("email").value="";
+            document.getElementById("admissionDate").value="";
+        }
+        function DisabledCheck() {
+            document.getElementById("subjectTwo").disabled = true;
+        }
+        function DisabledCheckTwo() {
+            document.getElementById("subjectOne").disabled = true;
+        }
+    </script>
+
+    <title>AriaEdu | Update Student</title>
 </head>
 
 <body>
@@ -277,12 +395,13 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Blank</h2>
+                            <h2 class="pageheader-title">Update Student</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Bland</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Attendance Management</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Update Attendance Marker</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -294,147 +413,74 @@
                 <!-- ============================================================== -->
 
                 <!-- ========================================your contents start here-------------->
+                <!-- Add Student Form -->
                 <div class="card">
-                    <h2 class="card-header">Mark Attendance</h2>
+                    <h2 class="card-header">Update Attendance Marker Details</h2>
                     <div class="card-body">
-                        <%
-                            LoadingService service = new LoadingService();
-                            ArrayList<Batch>  tempBatch = service.viewBatch();
-                        %>
-
-                        <div class="row g-3">
-                            <div class="divCol2">
-                                <br>
-                                <div class="input-group">
-                                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                    <button type="button" class="btn btn-outline-primary">search</button>
+                        <form class="form" name="form" action="<%=request.getContextPath()%>/AddStudentServlet" method="post" onsubmit="return validate()">
+                            <div class="row g-3">
+                                <!-- Address -->
+                                <div class="divCol2">
+                                    <label class="col-form-label">Address *</label>
+                                    <input type="text" name="address" id="address" class="form-control" placeholder="Address" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row g-3">
-                            <form action=""  method="get">
-                            <div class="divCol5">
-                                <div class="form-group">
-                                    <label for="subject">subject</label>
-                                    <select class="form-control"name="subject" id="subject">
-                                        <option value="maths">Maths</option>
-                                        <option value="biology">Biology</option>
-                                        <option value="chemistry">Chemistry</option>
-                                        <option value="physics">Physics</option>
-                                    </select>
+
+                            <div class="row g-3">
+                                <!-- Phone Number -->
+                                <div class="divCol">
+                                    <label class="col-form-label">Phone Number *</label>
+                                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="divCol">
+                                    <label class="col-form-label">Email *</label>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                                 </div>
                             </div>
-                            <div class="divCol5">
-                                <div class="form-group">
-                                    <label for="batch">Batch</label>
-                                    <select class="form-control" name="batch" id="batch">
-                                        <%
-                                            for(Batch batch :tempBatch){
-                                        %>
-                                        <option value="<%=batch.getName()%>"><%=batch.getName()%></option>
-                                        <%
-                                            }
-                                        %>
-                                    </select>
+
+                            <div class="row g-3">
+                                <!-- Subject/s -->
+                                <div class="divCol4">
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectOne" value="Biology" type="checkbox" class="custom-control-input" onclick="DisabledCheck()"><span class="custom-control-label">Biology</span>
+                                    </label>
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectTwo" value="Maths" type="checkbox" class="custom-control-input" onclick="DisabledCheckTwo()"><span class="custom-control-label">Maths</span>
+                                    </label>
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectThree" value="Chemistry" type="checkbox" class="custom-control-input"><span class="custom-control-label">Chemistry</span>
+                                    </label>
+                                    <label class="custom-control custom-checkbox custom-control-inline">
+                                        <input name="subject" id="subjectFour" value="Physics" type="checkbox" class="custom-control-input"><span class="custom-control-label">Physics</span>
+                                    </label>
                                 </div>
                             </div>
-                            <div class="divCol5">
-                                <div class="bottombtn">
-                                    <button type="submit" class="btn btn-rounded btn-primary">View</button>
-                                </div>
-                            </div>
-                        </form>
 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-
-                        <!-- basic table  -->
-                        <!-- ============================================================== -->
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <h5 class="card-header">Basic Table</h5>
-                                <div class="card-body">
-                                    <% AttendanceService service1 = new AttendanceService();
-
-                                        String subject = request.getParameter("subject");
-                                        String batch = request.getParameter("batch");
-
-                                        ArrayList<Student> list =new ArrayList<>();
-
-                                        if(subject != null && batch != null){
-                                            list = service1.viewbySubject(subject,batch);
-                                        }
-                                        else {
-                                            list = service1.loadStudent();
-                                        }
-                                    %>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered first">
-                                            <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Attendance</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <%
-                                                int i=0;
-                                                for(Student s :list){
-
-
-                                            %>
-                                            <form action="<%=request.getContextPath()%>/AddAttendanceServlet" method="post">
-                                            <tr>
-                                                <td><%=s.getId()%></td>
-                                                <td ><%=s.getFirstName()%></td>
-                                                <td >
-                                                    <div class="switch-button switch-button-success">
-                                                        <input type="checkbox"  name="status" id="<%=s.getId()%>" value="1"><span>
-                                                    <label for="<%=s.getId()%>"></label></span>
-                                                    </div>
-
-                                                </td>
-                                                <td>
-                                                        <input id="sid" type="hidden" name="sid" value="<%=s.getId()%>">
-                                                        <!--<button type="submit">save</button>-->
-                                                        <button type="submit" class="btn btn-outline-primary btn-sm">Save</button>
-                                                </td>
-                                            </tr>
-                                                <input id="sub" type="hidden" name="sub" value="<%=s.getTempSubject()%>">
-                                                <input id="bat" type="hidden" name="bat" value="<%=s.getBatch()%>">
-                                            </form>
-                                           <%
-                                                   i++;
-                                               }
-                                           %>
-                                            </tbody>
-                                            <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Attendance</th>
-                                            </tr>
-                                            </tfoot>
-                                        </table>
+                            <div class="row g-3">
+                                <div class="divCol4">
+                                    <div class="form-group">
+                                        <label class="col-form-label" for="status">Status *</label>
+                                        <select class="form-control" name="status" id="status" required>
+                                            <option value="ajith" selected>Ajith Pushpakumara</option>
+                                            <option value="nilantha">Nilantha Jayasooriya</option>
+                                            <option value="duminda">Duminda Rathnayaka</option>
+                                            <option value="janaka">Janaka Abewardhana</option>
+                                            <option value="hemal">Hemal Jayasingha</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- end basic table  -->
 
+                            <div class="btndiv" align="right">
+                                <!-- Update Button-->
+                                <button type="submit" class="btn btn-rounded btn-primary">Update</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
-
-
-
-
+                <!-- End Add Student Form -->
 
                 <!-- ============================================================== -->
                 <!-- footer -->
@@ -443,7 +489,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                                Copyright © 2021 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">AriaEdu</a>.
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="text-md-right footer-links d-none d-sm-block">
@@ -488,5 +534,4 @@
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
 </body>
-
 </html>
