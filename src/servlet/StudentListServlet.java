@@ -22,7 +22,7 @@ public class StudentListServlet extends HttpServlet {
     StudentService studentService= new StudentService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //Call service method
+        //Call service Method
         ArrayList<Student> list = new ArrayList<>();
         try{
             list = studentService.ViewStudent();
