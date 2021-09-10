@@ -19,7 +19,7 @@ public class UserProfileServlet extends HttpServlet {
         super();
     }
 
-    //Create an Object
+    //Create an object
     StudentService studentService= new StudentService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
