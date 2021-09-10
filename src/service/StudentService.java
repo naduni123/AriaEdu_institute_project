@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class StudentService implements IStudent{
-    //declare variables
+    //declare Variables
     Connection con;
     PreparedStatement preparedStatement;
 
