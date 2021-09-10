@@ -286,12 +286,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Blank</h2>
+                            <h2 class="pageheader-title">Attendance Management</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Bland</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Add Attendance Marker</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -313,12 +313,12 @@
                             <div class="row g-3">
                                 <div class="divCol">
                                     <label id="labelfname" class="col-form-label">First Name</label>
-                                    <input type="text" name="fname" id="fname" value="" class="form-control">
+                                    <input required type="text" name="fname" id="fname" value="" class="form-control">
                                     <small id=result"></small>
                                 </div>
                                 <div class="divCol">
                                     <label id="labellname" class="col-form-label">Last Name</label>
-                                    <input type="text" name="lname" id="lname" class="form-control">
+                                    <input required type="text" name="lname" id="lname" class="form-control">
                                     <small id=result"></small>
                                 </div>
                             </div>
@@ -326,12 +326,12 @@
                             <div class="row g-3">
                                 <div class="divCol">
                                     <label id ="labeldob" class="col-form-label">Date Of Birth</label>
-                                    <input type="Date" name="dob" id="dob" class="form-control">
+                                    <input required type="Date" name="dob" id="dob" class="form-control">
                                     <small id=result"></small>
                                 </div>
                                 <div class="divCol">
                                     <label id="labelnic" class="col-form-label">NIC</label>
-                                    <input type="text" name="nic" id="nic" class="form-control">
+                                    <input required type="text" name="nic" id="nic" class="form-control">
                                     <small id=result"></small>
                                 </div>
                             </div>
@@ -339,7 +339,7 @@
                             <div class="row g-3">
                                 <div class="divCol2">
                                     <label id="labeladdress" class="col-form-label">Address</label>
-                                    <input type="text" name="address" id="address" class="form-control">
+                                    <input required type="text" name="address" id="address" class="form-control">
                                     <small id=result"></small>
                                 </div>
                             </div>
@@ -357,13 +357,13 @@
 
                                 <div class="divCol3">
                                     <label ld="labeltele" class="col-form-label">Phone Number</label>
-                                    <input type="tel" name="Phone" id="Phone" class="form-control">
+                                    <input required type="tel" name="Phone" id="Phone" class="form-control">
                                     <small id=result"></small>
                                 </div>
 
                                 <div class="divCol3">
                                     <label id="labelemail" class="col-form-label">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control">
+                                    <input required type="email" name="email" id="email" class="form-control">
                                     <small id=result"></small>
                                 </div>
                             </div>
@@ -374,6 +374,8 @@
                                         <label for="input-select">Teacher</label>
                                         <select class="form-control" id="teacher" name="teacher">
                                             <option value="ajith">Ajith Pushpakumara</option>
+                                            <option value="nilantha">Nilantha Jayasooriya</option>
+                                            <option value="janaka">Janaka Abewardana</option>
 
                                         </select>
                                     </div>
