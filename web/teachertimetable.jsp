@@ -381,7 +381,7 @@
                                         <td><%=timeSlot.getBatch()%></td>
                                         <td><%=timeSlot.getClassroom()%></td>
                                         <td>
-                                            <a href="update_time_slot.jsp"><i class="fas fa-edit"></i></a>
+                                            <a href="RetrieveToUpdateServlet?slotid=<%=timeSlot.getId()%>"><i class="fas fa-edit"></i></a>
                                             <a><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
