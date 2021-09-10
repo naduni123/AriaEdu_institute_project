@@ -112,9 +112,10 @@ public class AttendanceService implements IAttendance{
         try {
 
             con = DBConnectionUtil.getConnection();
-            String sql = "select * from studentdetails where id not in(select sid from attendance where date=curdate() and subject='" + subject + "' and batch='" + 2021 + "') ";
+            String sql =
+                    "select * from studentlearnsubject l, studentdetails s where batch='"+batch+"' and s.id in (select sid from studentlearnsubject where subject='"+subject+"') and s.id = l.sid";
 
-
+            System.out.println("hel");
             preparedStatement = con.prepareStatement(sql);
             System.out.println(preparedStatement);
 
@@ -125,7 +126,12 @@ public class AttendanceService implements IAttendance{
                 Student student = new Student();
 
                 student.setId(rs.getInt(1));
-                student.setFirstName(rs.getString(2) + " " + rs.getString(3));
+                student.setFirstName(rs.getString(5) + " " + rs.getString(6));
+                student.setTempSubject(rs.getString(3));
+                student.setBatch(rs.getString(14));
+
+                System.out.println("getBatch"+student.getBatch());
+
 
 
                 list.add(student);
@@ -161,8 +167,6 @@ public class AttendanceService implements IAttendance{
 
                 student.setId(rs.getInt(1));
                 student.setName(rs.getString(2)+" "+rs.getString(3));
-
-
 
                 student.setStatus(rs.getInt(15));
 
