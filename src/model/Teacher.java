@@ -13,7 +13,7 @@ public class Teacher {
 	String subject;
 	int status;
 
-
+	//constructors
 	public Teacher(int id, String f_name, String l_name, String full_name, String gender, String nic, String address, String contact_no, String email, String subject, int status) {
 		this.id = id;
 		this.f_name = f_name;
