@@ -78,6 +78,37 @@ public class TimeSlotService implements ITimeSlot {
         return list;
     }
 
+
+
+    @Override
+    public void UpdateTimeSlot(TimeSlot timeSlot) {
+        try {
+            con = DBConnectionUtil.getConnection();
+            String sql = QueryTimeAndClass.EDIT_TIMESLOT;
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(sql);
+
+            preparedStatement.setInt(1,timeSlot.getBatch());
+            preparedStatement.setString(2,timeSlot.getDate());
+            preparedStatement.setString(3,timeSlot.getStartTime());
+            preparedStatement.setString(4,timeSlot.getEndTime());
+            preparedStatement.setString(5,timeSlot.getSubject());
+            preparedStatement.setInt(6,timeSlot.getTeacher());
+            preparedStatement.setInt(7,timeSlot.getClassroom());
+            preparedStatement.setInt(8,timeSlot.getId());
+
+
+
+            System.out.println(sql);
+
+            preparedStatement.execute();
+
+        }catch(Exception e){
+
+            e.printStackTrace();
+        }
+    }
+
     public ArrayList<TimeSlot> viewTimeByTeacherID(int id) {
         ArrayList<TimeSlot> list = new ArrayList<>();
         System.out.println("in");
@@ -102,6 +133,7 @@ public class TimeSlotService implements ITimeSlot {
                 timeSlot.setEndTime(rs.getString(5));
                 timeSlot.setClassroom(rs.getInt(8));
                 timeSlot.setBatch(rs.getInt(2));
+                timeSlot.setId(rs.getInt(1));
 
                 System.out.println(timeSlot.getId());
                 list.add(timeSlot);
