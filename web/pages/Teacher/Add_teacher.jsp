@@ -195,7 +195,7 @@
 
                                                     <input type="button" onclick="addToQualificationTable(event)" class="btn btn-danger btn-user btn-block" id="addQualification" value="Add Qualification">
                                                     <br><br>
-                                                   //add qualifications table
+                                                   //add qualifications to the table
                                                     <table id="tblQualifications" class="table table-bordered table-striped">
                                                         <thead>
                                                         <tr>
