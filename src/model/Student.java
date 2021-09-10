@@ -40,7 +40,7 @@ public class Student {
         this.subject = subject;
     }
 
-    //parameterized constructor
+    //Parameterized Constructor
     public Student(int id, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String[] subject) {
         super();
         this.id = id;
