@@ -38,7 +38,7 @@ public class AddStudentServlet extends HttpServlet {
         StudentService studentService = new StudentService();
         //Call addStudent function in studentService
         studentService.addStudent(student);
-        response.sendRedirect("indexhome.jsp");
+        response.sendRedirect("view_student_details.jsp");
 
     }
 
