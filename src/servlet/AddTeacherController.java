@@ -45,7 +45,7 @@ public class AddTeacherController extends HttpServlet {
 		String action = request.getParameter("action"); //check action
 		PrintWriter out = response.getWriter();
 		Gson json = new Gson(); //used to pass data with js
-
+		//add teachers
 		if(action.equalsIgnoreCase("add")) {
 			Teacher teacher = new Teacher(); //create object
 			teacher.setF_name(request.getParameter("f_name"));
@@ -61,7 +61,7 @@ public class AddTeacherController extends HttpServlet {
 			out.print(json.toJson(state));
 			out.flush();
 			out.close();
-
+		//add qualifications
 		}else if(action.equalsIgnoreCase("addTeacherQualification")){
 			int teacherId = Integer.parseInt(request.getParameter("id"));
 			String description = request.getParameter("qualification");
@@ -78,7 +78,7 @@ public class AddTeacherController extends HttpServlet {
 				out.print(json.toJson(false));
 				out.flush();
 				out.close();
-			}
+		//read values	}
 		}else if(action.equalsIgnoreCase("get")) {
 			String description = request.getParameter("txt");
 			String subject = request.getParameter("subject");
@@ -86,7 +86,8 @@ public class AddTeacherController extends HttpServlet {
 			ArrayList<Teacher> all_teacher = TeacherModel.retrieveAllTeachers(description,subject,status);
 			out.print(json.toJson(all_teacher));
 			out.flush();
-			out.close();
+
+
 		}else if(action.equalsIgnoreCase("qualification")) {
 			int id = Integer.parseInt(request.getParameter("id"));
 			ArrayList<String> all_teacher = TeacherModel.retrieveAllTeachersQualifications(id);
