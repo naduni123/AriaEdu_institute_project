@@ -10,4 +10,9 @@ public interface ITimeSlot {
 
     public ArrayList<TimeSlot> viewTime();
 
+
+
+    public void UpdateTimeSlot(TimeSlot timeSlot);
+
+
 }
