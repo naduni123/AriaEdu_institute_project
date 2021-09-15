@@ -9,3 +9,9 @@ const toSubmit =()=>{
     }
 
 }
+
+function f() {
+
+    alert('hello');
+
+}
