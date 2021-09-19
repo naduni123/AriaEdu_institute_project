@@ -357,7 +357,7 @@
 
                                 <div class="divCol3">
                                     <label ld="labeltele" class="col-form-label">Phone Number</label>
-                                    <input required type="tel" name="Phone" id="Phone" class="form-control">
+                                    <input required type="text" name="phone" id="phone" class="form-control">
                                     <small id=result"></small>
                                 </div>
 
@@ -371,11 +371,11 @@
                             <div class="row g-3">
                                 <div class="divCol2">
                                     <div class="form-group">
-                                        <label for="input-select">Teacher</label>
+                                        <label for="teacher">Teacher</label>
                                         <select class="form-control" id="teacher" name="teacher">
-                                            <option value="ajith">Ajith Pushpakumara</option>
-                                            <option value="nilantha">Nilantha Jayasooriya</option>
-                                            <option value="janaka">Janaka Abewardana</option>
+                                            <option value="Ajith Pushpakumara">Ajith Pushpakumara</option>
+                                            <option value="Nilantha Jayasooriya">Nilantha Jayasooriya</option>
+                                            <option value="Janaka Abewardana">Janaka Abewardana</option>
 
                                         </select>
                                     </div>

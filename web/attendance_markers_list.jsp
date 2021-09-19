@@ -336,8 +336,8 @@
                                         <td id="subject"><%= i.getList() %></td>
                                         <td id="Teacher"><%= i.getTeacher() %></td>
                                         <td> &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a  href="update_attendance_marker.jsp" ><i class= "fa fa-pencil" aria-hidden ="true" style="color:darkblue;width:20px"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a  href="delete?>" ><i class="fa fa-trash-o" aria-hidden="true" style="color:Red"></i></a>
+                                            <a  href="RetrieveAttMarkerToFormServlet?aid=<%=i.getId()%>" ><i class= "fa fa-pencil" aria-hidden ="true" style="color:darkblue;width:20px"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a  href="DeleteAttMarkerServlet?aid=<%=i.getId()%>" ><i class="fa fa-trash-o" aria-hidden="true" style="color:Red"></i></a>
                                         </td>
                                     </tr>
                                     <%} %>
