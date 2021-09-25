@@ -102,6 +102,7 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
+                                //teacher form starts here
                                 <h5 class="card-header" style="color: red">Teacher Details</h5>
                                 <div class="card-body">
                                     <form class="needs-validation" id="addTeacherForm" novalidate>
