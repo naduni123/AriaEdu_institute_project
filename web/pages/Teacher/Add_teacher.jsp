@@ -102,15 +102,16 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                //teacher form starts here
+                                <!--teacher form starts here-->
                                 <h5 class="card-header" style="color: red">Teacher Details</h5>
                                 <div class="card-body">
                                     <form class="needs-validation" id="addTeacherForm" novalidate>
                                         <div class="card">
                                             <h5 class="card-header">Personal Details</h5>
                                             <div class="card-body">
-                                                //form starts here
+                                                <!--form starts here-->
                                                 <div class="form-group">
+                                                    <!--enter first name-->
                                                     <label for="full_name">First Name</label>
                                                     <input type="text" class="form-control" id="f_name" placeholder="Enter First name" required>
                                                     <div class="valid-feedback">
@@ -118,12 +119,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <--enter last name-->
                                                     <label for="full_name">Last Name</label>
                                                     <input type="text" class="form-control" id="l_name" placeholder="Enter Last name" required>
                                                     <div class="valid-feedback">
                                                         Looks good!
                                                     </div>
                                                 </div>
+                                                <!--enter full name-->
                                                 <div class="form-group">
                                                     <label for="full_name">Full Name</label>
                                                     <input type="text" class="form-control" id="full_name" placeholder="Enter Full name"  required>
@@ -131,6 +134,7 @@
                                                         Looks good!
                                                     </div>
                                                 </div>
+                                                <!--Enter gender-->
                                                 <div class="form-group">
                                                     <label for="full_name">Gender</label><br>
                                                     <label class="custom-control custom-radio custom-control-inline">
@@ -140,6 +144,7 @@
                                                         <input type="radio" name="radio-inline" id="female" class="custom-control-input"><span class="custom-control-label">Female</span>
                                                     </label>
                                                 </div>
+                                                <!--Enter NIC-->
                                                 <div class="form-group">
                                                     <label for="full_name">NIC</label>
                                                     <input type="text" class="form-control" id="nic" placeholder="Enter NIC"  required>
@@ -147,6 +152,7 @@
                                                         Looks good!
                                                     </div>
                                                 </div>
+                                                <!--Address-->
                                                 <div class="form-group">
                                                     <label for="full_name">Address</label>
                                                     <input type="text" class="form-control" id="address" placeholder="Enter Address"  required>
