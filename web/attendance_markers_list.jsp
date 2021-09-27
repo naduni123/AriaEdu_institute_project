@@ -23,6 +23,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
@@ -35,6 +36,14 @@
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Classroom List</title>
+
+
+    <script>
+        function validate(){
+
+            alert("hi");
+        }
+    </script>>
 </head>
 <body>
 <!-- ============================================================== -->
@@ -309,7 +318,7 @@
                         <div class="card-body">
                             <div class="bottombtn" align="right">
                                 <button href="add_attendance_marker.jsp" class="btn btn-rounded btn-danger">ADD</button>
-                                <button  href="#" class="btn btn-rounded btn-primary">PRINT</button>
+                                <button  href="#" class="btn btn-rounded btn-primary" onclick="validate()">PRINT</button>
                             </div>
                             <br>
                             <div class="table-responsive">
@@ -400,6 +409,7 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <script src="marker.js"></script>
 
 </body>
 </html>
