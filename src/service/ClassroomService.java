@@ -111,6 +111,28 @@ public class ClassroomService implements IClassroom {
 
     }
 
+    @Override
+    public boolean deleteClassroom(int id) {
+        boolean rowdeleted = false;
+        try {
+
+            con = DBConnectionUtil.getConnection();
+            String sql=QueryTimeAndClass.DELETE_CLASS+id;
+
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(preparedStatement);
+
+             rowdeleted = preparedStatement.executeUpdate() >0;
+
+
+
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+            return rowdeleted;
+    }
+
 
     public Classroom findClassroom(int id){
 

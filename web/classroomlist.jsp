@@ -325,6 +325,7 @@
                                         <td id="ac"><%= i.getAc() %></td>
                                         <td>
                                             <a href="RetrieveClassroomToUpdateServlet?id=<%=i.getId()%>"><i class="fas fa-edit"></i></a>
+                                            <a href="DeleteClassroomServlet?id=<%=i.getId()%>"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     <%} %>

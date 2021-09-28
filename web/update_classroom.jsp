@@ -307,12 +307,12 @@
                                     <input type="hidden" id="id" name="id" value="<%=request.getAttribute("id")%>">
                                     <label class="col-form-label">Hall name</label>
                                     <input type="text" name="name" id="name" value="<%=request.getAttribute("name")%>" class="form-control">
-                                    <h5 id="namecheck" style="colour:red"></h5>
+                                    <h5 id="namecheck" style="color:red"></h5>
                                 </div>
                                 <div class="divCol">
                                     <label class="col-form-label">Floor</label>
                                     <input type="text" name="floor" id="floor"  value="<%=request.getAttribute("floor")%>" class="form-control">
-                                    <h5 id="floorcheck" style="colour:red"></h5>
+                                    <h5 id="floorcheck" style="color:red"></h5>
                                 </div>
                             </div>
 
@@ -320,7 +320,7 @@
                                 <div class="divCol">
                                     <label class="col-form-label">Capacity</label>
                                     <input type="number" id="capacity" name="capacity" value="<%=request.getAttribute("capacity")%>" class="form-control">
-                                    <h5 id="capacitycheck" style="colour:red"></h5>
+                                    <h5 id="capacitycheck" style="color:red"></h5>
                                 </div>
                                 <div class="divCol">
                                     <label class="col-form-label">A/C or non A/C</label>
@@ -329,12 +329,12 @@
                                         <option value="A/C">A/C</option>
                                         <option value="non A/C">non A/C</option>
                                     </select>
-                                    <h5 id="acheck" style="colour:red"></h5>
+                                    <h5 id="acheck" style="color:red"></h5>
                                 </div>
                             </div>
                             <div class="row g-3">
                                 <div class="btndiv">
-                                    <a href="#" class="btn btn-rounded btn-danger">Reset</a>
+                                    <a onclick="reset()" class="btn btn-rounded btn-danger">Reset</a>
                                     <button type="submit" id="btnsave" name="btnsave" class="btn btn-rounded btn-primary">Update</button>
                                 </div>
                             </div>
