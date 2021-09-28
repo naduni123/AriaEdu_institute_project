@@ -324,7 +324,7 @@
                                         <td id="capacity"><%= i.getCapacity() %></td>
                                         <td id="ac"><%= i.getAc() %></td>
                                         <td>
-                                            <a href="update_classroom.jsp"><i class="fas fa-edit"></i></a>
+                                            <a href="RetrieveClassroomToUpdateServlet?id=<%=i.getId()%>"><i class="fas fa-edit"></i></a>
                                         </td>
                                     </tr>
                                     <%} %>

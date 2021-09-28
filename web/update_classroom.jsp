@@ -298,16 +298,20 @@
                 <div class="card">
                     <h2 class="card-header">Update Classroom</h2>
                     <div class="card-body">
-                        <form class="form" id="form" onsubmit="return validateform()" action="<%=request.getContextPath()%>/AddClassroomServlet" method="post">
+                        <form class="form" id="form" onsubmit="return validateform()" action="<%=request.getContextPath()%>/EditClassroomServlet" method="post">
                             <div class="row g-3">
                                 <div class="divCol">
+                                    <%
+                                        System.out.println("fsfsfs"+request.getAttribute("name"));
+                                    %>
+                                    <input type="hidden" id="id" name="id" value="<%=request.getAttribute("id")%>">
                                     <label class="col-form-label">Hall name</label>
-                                    <input type="text" name="name" id="name" value="" class="form-control">
+                                    <input type="text" name="name" id="name" value="<%=request.getAttribute("name")%>" class="form-control">
                                     <h5 id="namecheck" style="colour:red"></h5>
                                 </div>
                                 <div class="divCol">
                                     <label class="col-form-label">Floor</label>
-                                    <input type="text" name="floor" id="floor" class="form-control">
+                                    <input type="text" name="floor" id="floor"  value="<%=request.getAttribute("floor")%>" class="form-control">
                                     <h5 id="floorcheck" style="colour:red"></h5>
                                 </div>
                             </div>
@@ -315,7 +319,7 @@
                             <div class="row g-3">
                                 <div class="divCol">
                                     <label class="col-form-label">Capacity</label>
-                                    <input type="number" id="capacity" name="capacity" class="form-control">
+                                    <input type="number" id="capacity" name="capacity" value="<%=request.getAttribute("capacity")%>" class="form-control">
                                     <h5 id="capacitycheck" style="colour:red"></h5>
                                 </div>
                                 <div class="divCol">
