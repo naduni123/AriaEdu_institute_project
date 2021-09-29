@@ -59,7 +59,7 @@ public class StudentService implements IStudent{
         }
     }
 
-        //Update Student Details
+    //Update Student Details
     @Override
     public void editStudent(Student student) {
 
@@ -85,6 +85,7 @@ public class StudentService implements IStudent{
                 int id = Integer.parseInt(rs.getString(1));
                 String name = (rs.getString(2) + " " + rs.getString(3));
                 String batch = rs.getString(11);
+                String status = rs.getString(12);
 
 
                 String sql2 = QueryStudent.SEE_STUDENT_SUBJECTS;
@@ -109,7 +110,8 @@ public class StudentService implements IStudent{
                 student.setFirstName(name);
                 student.setBatch(batch);
                 student.setList(tempsubject);
-            System.out.println(student.getList());
+                student.setStatus(status);
+                System.out.println(student.getList());
                 list.add(student);
             }
         } catch (ClassNotFoundException | SQLException e) {
@@ -146,6 +148,7 @@ public class StudentService implements IStudent{
                 String email = rs.getString(9);
                 Date admissionDate = Date.valueOf(rs.getString(10));
                 String batch = rs.getString(11);
+                String status = rs.getString(12);
 
                 String sql2 = QueryStudent.SEE_STUDENT_SUBJECTS;
                 preparedStatement = con.prepareStatement(sql2);
@@ -175,6 +178,7 @@ public class StudentService implements IStudent{
                 student.setAdmissionDate(admissionDate);
                 student.setBatch(batch);
                 student.setList(tempsubject);
+                student.setStatus(status);
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

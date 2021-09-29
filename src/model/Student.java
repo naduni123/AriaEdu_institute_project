@@ -16,6 +16,7 @@ public class Student {
     private String email;
     private Date admissionDate;
     private String batch;
+    private String status;
     private String[] subject;
     private String list;
 
@@ -25,7 +26,7 @@ public class Student {
     }
 
     //parameterized constructor exclude id
-    public Student(String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String[] subject) {
+    public Student(String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,11 +38,12 @@ public class Student {
         this.email = email;
         this.admissionDate = admissionDate;
         this.batch = batch;
+        this.status = status;
         this.subject = subject;
     }
 
     //Parameterized Constructor
-    public Student(int id, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String[] subject) {
+    public Student(int id, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
         super();
         this.id = id;
         this.firstName = firstName;
@@ -54,6 +56,7 @@ public class Student {
         this.email = email;
         this.admissionDate = admissionDate;
         this.batch = batch;
+        this.status = status;
         this.subject = subject;
     }
 
@@ -144,6 +147,14 @@ public class Student {
 
     public void setBatch(String batch) {
         this.batch = batch;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String[] getSubject() {
