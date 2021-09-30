@@ -310,10 +310,13 @@
                 %>
                 <div class="card">
                     <div class="card-body">
-                        <form action="<%=request.getContextPath()%>/UpdateTImeSlotServlet" method="post">
+                        <form action="<%=request.getContextPath()%>/UpdateTimeSlotServlet" onsubmit="return validateform()" method="post">
                             <div class="row g-3">
                                 <div class="divCol">
                                     <div class="form-group">
+                                        <%
+                                            System.out.println(request.getAttribute("slotId"));
+                                        %>
                                         <input type="hidden" id="id" name="id" value="<%=request.getAttribute("slotId")%>">
                                         <label for="batch">Batch</label>
                                         <select class="form-control" id="batch" name="batch">
@@ -406,11 +409,12 @@
                                     </div>
                                 </div>
                             </div>
-                    </div>
+
+
                     <div class="row g-3">
                         <div class="btndiv">
-                            <a href="#" class="btn btn-rounded btn-danger">Reset</a>
-                            <button type="submit" class="btn btn-rounded btn-primary">Add</button>
+                            <a onclick="reset()" class="btn btn-rounded btn-danger">Reset</a>
+                            <button type="submit" class="btn btn-rounded btn-primary">update</button>
                         </div>
                     </div>
                     </form>
@@ -472,6 +476,7 @@
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <script src="assets/libs/js/timeslot.js"></script>
 
     <!--- JQuery Area-->
     <script >

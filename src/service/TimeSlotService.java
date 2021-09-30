@@ -1,11 +1,9 @@
 package service;
 
-import model.Classroom;
 import model.TimeSlot;
 import util.DBConnectionUtil;
 import util.QueryTimeAndClass;
 
-import javax.servlet.jsp.jstl.sql.Result;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -78,13 +76,35 @@ public class TimeSlotService implements ITimeSlot {
         return list;
     }
 
+    @Override
+    public boolean deleteTime(int id) {
+        boolean rowdeleted = false;
+        try {
+
+            con = DBConnectionUtil.getConnection();
+            String sql=QueryTimeAndClass.DELETE_TIME+id;
+
+            preparedStatement = con.prepareStatement(sql);
+            System.out.println(preparedStatement);
+
+            rowdeleted = preparedStatement.executeUpdate() >0;
+
+
+
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return rowdeleted;
+    }
 
 
     @Override
-    public void UpdateTimeSlot(TimeSlot timeSlot) {
+    public boolean UpdateTimeSlot(TimeSlot timeSlot) {
+        boolean rowupdated = false;
         try {
             con = DBConnectionUtil.getConnection();
-            String sql = QueryTimeAndClass.EDIT_TIMESLOT;
+            String sql = QueryTimeAndClass.EDIT_TIMESLOT+timeSlot.getId();
             preparedStatement = con.prepareStatement(sql);
             System.out.println(sql);
 
@@ -95,18 +115,20 @@ public class TimeSlotService implements ITimeSlot {
             preparedStatement.setString(5,timeSlot.getSubject());
             preparedStatement.setInt(6,timeSlot.getTeacher());
             preparedStatement.setInt(7,timeSlot.getClassroom());
-            preparedStatement.setInt(8,timeSlot.getId());
+
 
 
 
             System.out.println(sql);
 
-            preparedStatement.execute();
+            rowupdated =preparedStatement.executeUpdate(  )>0;
 
         }catch(Exception e){
 
             e.printStackTrace();
         }
+
+        return rowupdated;
     }
 
     public ArrayList<TimeSlot> viewTimeByTeacherID(int id) {
@@ -168,6 +190,7 @@ public class TimeSlotService implements ITimeSlot {
                 timeSlot.setEndTime(rs.getString(5));
                 timeSlot.setClassroom(rs.getInt(8));
                 timeSlot.setTeacher(rs.getInt(7));
+                timeSlot.setId(rs.getInt(1));
 
                 System.out.println(timeSlot.getId());
                 list.add(timeSlot);

@@ -305,13 +305,13 @@
                 <div class="card">
                     <br><br><br><br><br>
                     <div class="halfwidth">
-                        <a href="studenttimetable.jsp" class="card-text center">Student TimeTable</a>
+                        <a href="studentTimeTable1.jsp" class="card-text center">Student TimeTable</a>
                     </div>
                 </div>
                     <div class="card">
                         <br><br><br><br><br>
                         <div class="halfwidth">
-                            <a href="teachertimetable.jsp" class="card-text center">Teacher TimeTable</a>
+                            <a href="teacherTimeTable1.jsp" class="card-text center">Teacher TimeTable</a>
                         </div>
                     </div>
                 </div>

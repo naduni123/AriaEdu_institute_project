@@ -10,9 +10,9 @@ public interface ITimeSlot {
 
     public ArrayList<TimeSlot> viewTime();
 
+    public boolean deleteTime(int id);
 
-
-    public void UpdateTimeSlot(TimeSlot timeSlot);
+    public boolean UpdateTimeSlot(TimeSlot timeSlot);
 
 
 }
