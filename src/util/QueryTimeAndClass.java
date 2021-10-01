@@ -24,4 +24,5 @@ public class QueryTimeAndClass {
     public static final String FIND_CLASS="SELECT * FROM classroom WHERE id = ";
     public static final String FIND_BATCH="SELECT * FROM batch WHERE id = ";
 
+
 }
