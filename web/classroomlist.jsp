@@ -299,6 +299,9 @@
                         <h5 class="card-header">Classrooms</h5>
                         <div class="card-body">
                             <div class="table-responsive">
+
+                                <a href="GenerateClassServlet"><i class="fas fa-file-pdf"></i></a>
+
                                 <table class="table table-striped table-bordered first">
 
                                     <% ClassroomService service = new ClassroomService();
