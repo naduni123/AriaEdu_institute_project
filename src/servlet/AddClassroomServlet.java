@@ -15,7 +15,6 @@ import java.io.IOException;
 public class AddClassroomServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
         String name=request.getParameter("name");
         String floor=request.getParameter("floor");
         int capacity= Integer.parseInt(request.getParameter("capacity"));

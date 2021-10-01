@@ -22,7 +22,6 @@ public class ClassStatusServlet extends HttpServlet {
         List<Classroom> list = new ArrayList<>();
         try{
             list = classroomService.viewClassroom();
-
             request.setAttribute("list",list);
 
         } catch (Exception e) {

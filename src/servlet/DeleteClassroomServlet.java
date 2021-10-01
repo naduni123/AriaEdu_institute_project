@@ -17,6 +17,7 @@ public class DeleteClassroomServlet extends HttpServlet {
 
     }
 
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int id  = Integer.parseInt(request.getParameter("id"));
