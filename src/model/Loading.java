@@ -2,6 +2,8 @@ package model;
 
 import java.sql.Time;
 
+
+//model for loading (DTO)
 public class Loading {
 
     private int teacherId;

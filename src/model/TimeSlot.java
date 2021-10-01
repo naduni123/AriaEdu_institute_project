@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Time;
 
+//model for timesslot
 public class TimeSlot {
     
     private int id;
@@ -23,6 +24,7 @@ public class TimeSlot {
         this.teacher = teacher;
     }
 
+    //getters and setters
     public TimeSlot(){}
 
     public int getId() {
