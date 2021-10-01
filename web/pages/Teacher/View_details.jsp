@@ -28,7 +28,7 @@
     <!-- ============================================================== -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="index.jsp">AriaEdu</a>
+            <a class="navbar-brand" href="../../index.jsp"><img src="../../assets/images/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -67,7 +67,7 @@
     <%@include file="../common/header.jsp" %>
     <!-- ============================================================== -->
 
-    //modal
+    <%--    //modal--%>
 
     <div class="modal fade" id="ModalAdd">
         <div class="modal-dialog modal-lg">
@@ -81,7 +81,8 @@
                 <div class="modal-body">
                     <form>
                         <div class="card-body">
-                            <div class="form-group">                        //change this
+                            <div class="form-group">
+                                <%--                                //change this--%>
                                 <input type="hidden" class="form-control" id="id_customer" name="id_customer" hidden>
                             </div>
 
@@ -167,47 +168,43 @@
                     <div class="card">
                         <h5 class="card-header">All Details</h5>
 
-                        <div class="card-deck">
-                            <div class="card bg-grey">
-                                <div class="card-body text-center">
+                        <form action="report.jsp" method="get" target="_blank">
+                            <div class="card-deck">
+                                <div class="card bg-grey">
+                                    <div class="card-body text-center">
 
-                                    <div class="col-12 mb-2">
-                                        <span style="color: green">Search by Name, NIC or Contact Number</span>
-                                        <input type="text" placeholder="Search" id="txt" onkeyup="getTeachers()"  style="width:100%">
-                                        //search bar
-
+                                        <div class="col-12 mb-2">
+                                            <input type="text" placeholder="Search" id="txt" name="txt" onkeyup="getTeachers()"  style="width:100%">
+                                        </div>
+                                        <span style="color: green">Status</span>
+                                        <div class="col-12 mb-2">
+                                            <select id="status" name="status" style="width:100%" onchange="getTeachers()">
+                                                <option value="all" selected>All</option>
+                                                <option value="1">Current</option>
+                                                <option value="0">Past</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    //search by status
-                                    <span style="color: green">Search by Status</span>
-                                    <div class="col-12 mb-2">
-                                        <select id="status" style="width:100%" onchange="getTeachers()">
-                                          <option value="all" selected>All</option>
-                                          <option value="1">Current</option>
-                                          <option value="0">Past</option>
-                                        </select>
-								    </div>
                                 </div>
-                            </div>
-                            <div class="card bg-grey">
-                                <div class="card-body text-center">
-                                    <div class="col-12 mb-2">
-                                        //search by subject
-                                        <span style="color: green">Search by Subject</span>
-                                        <select id="sub" style="width:100%" onchange="getTeachers()">
-                                            <option value="all" selected>All</option>
-                                            <option value="Biological Sciences">Biological Sciences</option>
-                                            <option value="Combined Mathematics">Combined Mathematics</option>
-                                            <option value="Chemistry">Chemistry</option>
-                                            <option value="Physics">Physics</option>
-                                        </select>
+                                <div class="card bg-grey">
+                                    <div class="card-body text-center">
+                                        <div class="col-12 mb-2">
+                                            <select id="sub" name="sub" style="width:100%" onchange="getTeachers()">
+                                                <option value="all" selected>All</option>
+                                                <option value="Biological Sciences">Biological Sciences</option>
+                                                <option value="Combined Mathematics">Combined Mathematics</option>
+                                                <option value="Chemistry">Chemistry</option>
+                                                <option value="Physics">Physics</option>
+                                            </select>
+                                        </div>
+
+                                        <br>
+                                        <button type="submit" class="btn btn-warning">Report</button>
                                     </div>
-
-                                    <br>
-                                    <button class="btn btn-warning"  onclick="createPDF()">Report</button>
                                 </div>
-                            </div>
 
-                        </div>
+                            </div>
+                        </form>
 
 
                         <div class="card-body">
@@ -313,24 +310,6 @@
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-<script>
-    function createPDF() {
-        html2canvas(document.getElementById('pdf'), {
-            onrendered: function (canvas) {
-                var data = canvas.toDataURL();
-                var docDefinition = {
-                    content: [{
-                        image: data,
-                        width: 530
-                    }]
-                };
-                pdfMake.createPdf(docDefinition).download("Teacher_list.pdf");
-            }
-        });
-    }
-
-
-</script>
 </body>
 
 </html>
