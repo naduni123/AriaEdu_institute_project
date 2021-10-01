@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//RETIREVE TIMESLOT TO UPDATE FORM
 @WebServlet("/RetrieveToUpdateServlet")
 public class RetrieveToUpdateServlet extends HttpServlet {
 

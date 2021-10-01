@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//DELETE STUDENT TIME TABLE
 @WebServlet("/DeleteStudentTimeServlet")
 public class DeleteStudentTimeServlet extends HttpServlet {
     TimeSlotService timeSlotService = new TimeSlotService();

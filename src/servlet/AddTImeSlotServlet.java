@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Time;
 
+//ADD TIMESLOT
 @WebServlet("/AddTImeSlotServlet")
 public class AddTImeSlotServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
