@@ -301,35 +301,34 @@
                     <div class="card">
                         <div class="card-body">
                             <form action="" method="get">
-                            <div class="row g-3">
-                                <div class="divCol">
-                                    <%
-                                        LoadingService service = new LoadingService();
-                                        ArrayList<Batch> tempBatch =service.viewBatch();
+                                <div class="row g-3">
+                                    <div class="divCol">
+                                        <%
+                                            LoadingService service = new LoadingService();
+                                            ArrayList<Batch> tempBatch =service.viewBatch();
 
-                                    %>
-                                    <div class="form-group">
-                                        <label for="batch">Teacher</label>
-                                        <select class="form-control" id="batch" name="batch">
-                                            <option value="0">batch</option>
-                                            <%
-                                                for(Batch batch : tempBatch){
-                                            %>
-                                            <option value="<%=batch.getId()%>"><%=batch.getName()%></option>
-                                            <%
-                                                }
-                                            %>
-                                        </select>
-                                    </div>
-                                    <div class="btndiv">
-                                        <button type="submit" class="btn btn-rounded btn-primary">search</button>
+                                        %>
+                                        <div class="form-group">
+                                            <label for="batch">Teacher</label>
+                                            <select class="form-control" id="batch" name="batch">
+                                                <option value="0">batch</option>
+                                                <%
+                                                    for(Batch batch : tempBatch){
+                                                %>
+                                                <option value="<%=batch.getId()%>"><%=batch.getName()%></option>
+                                                <%
+                                                    }
+                                                %>
+                                            </select>
+                                        </div>
+                                        <div class="btndiv">
+                                            <button type="submit" class="btn btn-rounded btn-primary">search</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </form>
                         </div>
                     </div>
-
                     <div class="card">
                         <h5 class="card-header">Classrooms</h5>
                         <div class="card-body">
@@ -341,17 +340,18 @@
 
 
                                 int teacherId = 0;
-                               int batchId = Integer.parseInt(request.getParameter("batch"));
-                               System.out.println(teacherId);
+                                int batchId = Integer.parseInt(request.getParameter("batch"));
+                                System.out.println(teacherId);
 
                                 if(batchId != 0){
 //
                                     tempTime = timeSlotService.viewTimeByBatchID(batchId);
-                               }else {
+                                }else {
 
-                                  tempTime = timeSlotService.viewTime();
-                               }
+                                    tempTime = timeSlotService.viewTime();
+                                }
                             %>
+
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered first">
                                     <thead>
@@ -369,9 +369,9 @@
                                     <%
                                         for(TimeSlot timeSlot :tempTime){
 
-                                           // String bName = loadingService.findBatch(timeSlot.getBatch());
-                                         //   String hName =loadingService.findClass(timeSlot.getClassroom());
-                                          //  String tName =loadingService.findTeacher(timeSlot.getTeacher());
+                                            // String bName = loadingService.findBatch(timeSlot.getBatch());
+                                            //   String hName =loadingService.findClass(timeSlot.getClassroom());
+                                            //  String tName =loadingService.findTeacher(timeSlot.getTeacher());
 
                                     %>
                                     <tr>
@@ -383,10 +383,10 @@
                                         <td><%=timeSlot.getClassroom()%></td>
                                         <td>
 
-                                                <a  href="RetrieveToUpdateServlet?slotid=<%=timeSlot.getId()%>"><i class="fas fa-edit"></i></a>
+                                            <a  href="RetrieveToUpdateServlet?slotid=<%=timeSlot.getId()%>"><i class="fas fa-edit"></i></a>
 
 
-                                                <a><i class="fas fa-trash-alt"></i></a>
+                                            <a href="DeleteStudentTimeServlet?id=<%=timeSlot.getId()%>"><i class="fas fa-trash-alt"></i></a>
 
                                         </td>
                                     </tr>
@@ -409,58 +409,61 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
-                <div class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="text-md-right footer-links d-none d-sm-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- end footer -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- end wrapper  -->
+            <!-- end footer -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- end main wrapper  -->
+        <!-- end wrapper  -->
         <!-- ============================================================== -->
-        <!-- Optional JavaScript -->
-        <!-- jquery 3.3.1 -->
-        <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-        <!-- bootstap bundle js -->
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-        <!-- slimscroll js -->
-        <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-        <!-- main js -->
-        <script src="assets/libs/js/main-js.js"></script>
-        <!-- chart chartist js -->
-        <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-        <!-- sparkline js -->
-        <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-        <!-- morris js -->
-        <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-        <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-        <!-- chart c3 js -->
-        <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-        <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+
 </body>
 </html>

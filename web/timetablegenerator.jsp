@@ -5,7 +5,8 @@
 <%@ page import="service.TimeSlotService" %>
 <%@ page import="service.LoadingService" %>
 <%@ page import="model.Batch" %>
-<%@ page import="model.Loading" %><%--
+<%@ page import="model.Loading" %>
+<%@ page import="java.sql.Time" %><%--
   Created by IntelliJ IDEA.
   User: Kavindu Balasooriya
   Date: 8/16/2021
@@ -29,9 +30,11 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>Teacher Timetbale</title>
+    <title>Timetable</title>
 </head>
 <body>
+
+
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -282,12 +285,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Teacher Timetable</h2>
+                            <h2 class="pageheader-title">Timetable</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Teacher Timetable</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Timetable</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -296,17 +299,18 @@
                 </div>
                 <!-- ============================================================== -->
                 <!-- end pageheader  -->
+
                 <!-- ============================================================== -->
 
                 <!-- ========================================your contents start here-------------->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
                     <div class="card">
                         <div class="card-body">
-                            <form action="" method="get">
+                            <form action="<%=request.getContextPath()%>/GenerateTeacherServlet" method="post">
                                 <div class="row g-3">
                                     <div class="divCol">
                                         <%
-
                                             LoadingService service = new LoadingService();
                                             ArrayList<Loading>tempTeacher =service.viewTeacher();
 
@@ -325,79 +329,47 @@
                                             </select>
                                         </div>
                                         <div class="btndiv">
-                                            <button type="submit" class="btn btn-rounded btn-primary">search</button>
+                                            <button type="submit" class="btn btn-rounded btn-primary">generate</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
+
+
                     <div class="card">
-                        <h5 class="card-header">Teachers Time Table</h5>
                         <div class="card-body">
-                            <%
-                                int Id = Integer.parseInt(request.getParameter("teacher"));
-                                ArrayList<TimeSlot> tempTime = new ArrayList<>();
+                            <form action="<%=request.getContextPath()%>/GenerateStudentServlet" method="post">
+                                <div class="row g-3">
+                                    <div class="divCol">
+                                        <%
+                                            LoadingService service1 = new LoadingService();
+                                            ArrayList<Batch> tempBatch =service1.viewBatch();
 
-                                if(Id != 0){
-
-                                    TimeSlotService timeSlotService = new TimeSlotService();
-                                    tempTime = timeSlotService.viewTimeByTeacherID(Id);
-                                }
-                            %>
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered first">
-                                    <thead>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Day</th>
-                                        <th>Start Time</th>
-                                        <th>End Time</th>
-                                        <th>Batch</th>
-                                        <th>Hall</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <%
-                                        for(TimeSlot timeSlot :tempTime){
-
-                                            // String bName = loadingService.findBatch(timeSlot.getBatch());
-                                            //   String hName =loadingService.findClass(timeSlot.getClassroom());
-                                            //  String tName =loadingService.findTeacher(timeSlot.getTeacher());
-
-                                    %>
-                                    <tr>
-                                        <td><%=timeSlot.getSubject()%></td>
-                                        <td><%=timeSlot.getDate()%></td>
-                                        <td><%=timeSlot.getStartTime()%></td>
-                                        <td><%=timeSlot.getEndTime()%></td>
-                                        <td><%=timeSlot.getBatch()%></td>
-                                        <td><%=timeSlot.getClassroom()%></td>
-                                        <td>
-                                            <a href="RetrieveToUpdateServlet?slotid=<%=timeSlot.getId()%>"><i class="fas fa-edit"></i></a>
-                                            <a href="DeleteTeacherTimeServlet?id=<%=timeSlot.getId()%>"><i class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <%
-                                        }
-                                    %>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Day</th>
-                                        <th>Start Time</th>
-                                        <th>End Time</th>
-                                        <th>Batch</th>
-                                        <th>Hall</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                                        %>
+                                        <div class="form-group">
+                                            <label for="batch">Batch</label>
+                                            <select class="form-control" id="batch" name="batch">
+                                                <option value="0">batch</option>
+                                                <%
+                                                    for(Batch batch : tempBatch){
+                                                %>
+                                                <option value="<%=batch.getId()%>"><%=batch.getName()%></option>
+                                                <%
+                                                    }
+                                                %>
+                                            </select>
+                                        </div>
+                                        <div class="btndiv">
+                                            <button type="submit" class="btn btn-rounded btn-primary">generate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
+
 
                     <!-- ============================================================== -->
                     <!-- footer -->
