@@ -196,6 +196,7 @@ public class ClassroomService implements IClassroom {
         com.itextpdf.text.Font heading3 = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.WHITE);
         int count =1;
 
+
         Chunk head = new Chunk("ARIEAEDU", heading1);
         Chunk head3 = new Chunk("Attendance markers list", heading1);
         Chunk head2 = new Chunk("\n54/3 New Kandy Road ,Kotalawela,Malabe\nHotline:072323435\nemail:AriaEdu@gmail.com", heading2);

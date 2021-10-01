@@ -188,7 +188,6 @@ public class LoadingService {
             }
 
 
-
         }
         catch (ClassNotFoundException | SQLException e){
             e.printStackTrace();
