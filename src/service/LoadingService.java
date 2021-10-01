@@ -1,5 +1,6 @@
 package service;
 
+//imports
 import model.Batch;
 import model.Classroom;
 import model.Loading;
@@ -16,6 +17,7 @@ public class LoadingService {
     Connection con;
     PreparedStatement preparedStatement;
 
+   //VIEW BATCH
   public ArrayList<Batch> viewBatch(){
 
       ArrayList<Batch> list = new ArrayList<>();
@@ -46,6 +48,7 @@ public class LoadingService {
 
   }
 
+    //VIEW TEACHER
   public ArrayList<Loading> viewTeacher(){
 
       ArrayList<Loading> list = new ArrayList<>();
@@ -78,6 +81,7 @@ public class LoadingService {
 
   }
 
+  //FIND TEACHER
   public String findTeacher(int id){
 
       String name=" ";
@@ -105,6 +109,7 @@ public class LoadingService {
       return  name;
   }
 
+    //FIND BATCH
     public String findBatch(int id){
 
         String name=" ";
@@ -131,6 +136,7 @@ public class LoadingService {
         return  name;
     }
 
+    //FIND CLASS
     public String findClass(int id){
 
         String name=" ";
@@ -156,6 +162,7 @@ public class LoadingService {
 
         return  name;
     }
+
 
     public TimeSlot RetrieveTimeSlot(int id){
 
