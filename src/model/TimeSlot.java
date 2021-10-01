@@ -25,6 +25,7 @@ public class TimeSlot {
     }
 
     //getters and setters
+
     public TimeSlot(){}
 
     public int getId() {
