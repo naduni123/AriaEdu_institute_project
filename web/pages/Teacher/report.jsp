@@ -44,8 +44,8 @@
         <div class="row">
             <div class="col-12">
                 <h2 class="page-header">
-<%--                    <i class="fas fa-globe"></i> <a class="navbar-brand" href="../../index.jsp">AriaEdu</a>--%>
-                    <a class="navbar-brand" href="../../index.jsp"><img src="../../assets/images/logo.png"></a>
+<%--                    <i class="fas fa-globe"></i> <a class="navbar-brand" href="../../TeacherDashboard.jsp">AriaEdu</a>--%>
+                    <a class="navbar-brand" href="../../TeacherDashboard.jsp"><img src="../../assets/images/logo.png"></a>
                     <small class="float-right" id="date">Date: 2/10/2014</small>
                 </h2>
             </div>
