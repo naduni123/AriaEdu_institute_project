@@ -1,5 +1,6 @@
 package util;
 
+//TIME SLOT AND CLASSROOM QUIREIS
 public class QueryTimeAndClass {
 
     public static final String ADD_CLASS = "INSERT INTO classroom(name,floor,capacity,ac) values(?,?,?,?)";
