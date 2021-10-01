@@ -17,7 +17,6 @@ public class GenerateStudentServlet extends HttpServlet {
         try{
             TimeSlotService service = new TimeSlotService();
             service.studentPdf(id);
-
             response.sendRedirect("timetablegenerator.jsp");
 
         }catch (Exception e){

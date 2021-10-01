@@ -24,7 +24,6 @@ public class AddTImeSlotServlet extends HttpServlet {
         timeSlot.setBatch(Integer.parseInt(request.getParameter("batch")));
         timeSlot.setDate(request.getParameter("day"));
 
-
         String start = request.getParameter("starttime");
         String end = request.getParameter("endtime");
         String classroom = request.getParameter("classroom");
