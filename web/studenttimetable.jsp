@@ -351,7 +351,6 @@
                                     tempTime = timeSlotService.viewTime();
                                 }
                             %>
-
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered first">
                                     <thead>

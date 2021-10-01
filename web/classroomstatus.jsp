@@ -381,7 +381,6 @@
                                     <tbody>
                                     <%
 
-
                                         for(Classroom i : list){
 
 

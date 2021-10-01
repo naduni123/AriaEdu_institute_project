@@ -306,7 +306,6 @@
                                 <div class="row g-3">
                                     <div class="divCol">
                                         <%
-
                                             LoadingService service = new LoadingService();
                                             ArrayList<Loading>tempTeacher =service.viewTeacher();
 

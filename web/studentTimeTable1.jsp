@@ -306,7 +306,6 @@
                                     <div class="divCol">
                                         <%
                                             LoadingService service = new LoadingService();
-
                                             ArrayList<Batch> tempBatch =service.viewBatch();
 
                                         %>
