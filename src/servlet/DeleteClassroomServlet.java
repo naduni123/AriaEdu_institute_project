@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//DELETE CLASSROOM
 @WebServlet("/DeleteClassroomServlet")
 public class DeleteClassroomServlet extends HttpServlet {
     ClassroomService service = new ClassroomService();

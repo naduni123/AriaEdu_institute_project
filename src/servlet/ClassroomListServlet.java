@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+//RETRIEVE CLASS ROOM LIST
 @WebServlet("/ClassroomListServlet")
 public class ClassroomListServlet extends HttpServlet {
 

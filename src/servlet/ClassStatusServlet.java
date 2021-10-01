@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+//CLASSROOM STATUS
 @WebServlet("/ClassStatusServlet")
 public class ClassStatusServlet extends HttpServlet {
 
