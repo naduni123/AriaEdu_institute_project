@@ -4,6 +4,7 @@ import model.TimeSlot;
 
 import java.util.ArrayList;
 
+//TIMESLOT INTERFACE
 public interface ITimeSlot {
 
     public void AddTimeSlot(TimeSlot timeSlot);

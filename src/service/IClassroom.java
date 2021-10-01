@@ -4,6 +4,7 @@ import model.Classroom;
 
 import java.util.ArrayList;
 
+//CLASSROOM INTERFACE
 public interface IClassroom {
 
     public void addClassroom(Classroom classroom);
