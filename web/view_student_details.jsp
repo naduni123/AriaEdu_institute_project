@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
     <title>AriaEdu | Student List</title>
 </head>
 
@@ -151,120 +152,7 @@
     <!-- ============================================================== -->
     <!-- left sidebar -->
     <!-- ============================================================== -->
-    <div class="nav-left-sidebar sidebar-dark">
-        <div class="menu-list">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="d-xl-none d-lg-none" href="#">Student Management</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-divider">
-                            Menu
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="update_student_details.jsp" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user"></i>Student Management</a>
-                            <div id="submenu-2" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-users"></i>Teacher Management</a>
-                            <div id="submenu-3" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Attendance Management</a>
-                            <div id="submenu-4" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Time Tables</a>
-                            <div id="submenu-5" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-hospital-alt"></i>Class Room</a>
-                            <div id="submenu-6" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <%@include file="header.jsp" %>
     <!-- ============================================================== -->
     <!-- end left sidebar -->
     <!-- ============================================================== -->
@@ -297,7 +185,7 @@
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
 
-                <!-- ========================================your contents start here-------------->
+                <!-- ========================================Student List-------------->
                 <div class="row">
                     <!-- ============================================================== -->
                     <!-- basic table  -->
@@ -305,45 +193,122 @@
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
                             <h5 class="card-header">View Student Details</h5>
-                            <div class="card-body">
-                                <div class="bottombtn" align="right">
-                                    <a href="add_student.jsp" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-user-plus" style="color: grey"></i></a>
-                                    <button  href="#" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-file-pdf" style="color: grey"></i></button>
-                                    <button  href="#" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-sync-alt" style="color: grey"></i></button>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered first">
-                                        <% StudentService service = new StudentService();
+                            <div class="card-deck">
+                                <div class="card bg-grey">
+                                    <div class="card-body text-center">
+                                        <!-- Search by Name, NIC or Contact Number -->
+                                        <div class="col-12 mb-2">
+                                            <span style="color: #007bff">Search by Name, NIC or Contact Number</span>
+                                            <form action="SearchStudentDetailsTxtServlet" id="form3">
+                                            <input type="text" name="txt" id="srh3" placeholder="Search" id="txt" style="width:100%">
+                                            </form>
+                                        </div>
 
-                                            ArrayList<Student> list=  service.ViewStudent(); %>
+                                        <!-- Search by Status (Filter) -->
+                                        <span style="color: #007bff">Search by Status</span>
+                                        <div class="col-12 mb-2">
+                                            <select id="searchStatus" style="width:100%">
+                                                <option value="All" selected>All</option>
+                                                <option value="Current">Current</option>
+                                                <option value="Past">Past</option>
+                                            </select>
+                                        </div>
+                                        <form id="form2" action="/SearchStudentDetailsStatusServlet">
+                                            <input type="hidden" id="srh2" name="status">
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="card bg-grey">
+                                    <div class="card-body text-center">
+                                        <div class="col-12 mb-2">
+                                            <!-- Search by Batch (Filter) -->
+                                            <span style="color: #007bff">Search by Batch</span>
+                                            <select id="searchbatch" style="width:100%" >
+                                                <option value="All">All</option>
+                                                <option value="2021">2021 A/L</option>
+                                                <option value="2022">2022 A/L</option>
+                                                <option value="2023">2023 A/L</option>
+                                            </select>
+                                        </div>
+                                        <form id="form1" action="/SearchStudentDetailsDServlet">
+                                            <input type="hidden" id="srh1" name="batch">
+                                        </form>
+
+                                        <br>
+
+                                        <!-- Buttons -->
+                                        <div class="bottombtn" align="right">
+                                            <!-- Add Button -->
+                                            <a href="add_student.jsp" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-user-plus" style="color: grey"></i></a>
+                                            <!-- Generate PDF Button -->
+                                            <a  href="<%=request.getContextPath()%>/GenerateStudentListServlet" class="btn" style="margin-bottom: 10px; background-color:transparent"><i class="fas fa-file-pdf" style="color: grey"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <!-- Student List Table -->
+                                    <table class="table table-hover">
+                                        <!-- Create an Object and ArrayList -->
+                                        <% StudentService service = new StudentService();
+                                            ArrayList<Student> list=  service.ViewStudent();
+
+                                            //Search Loop
+                                            if(request.getAttribute("bt") !=null)
+                                            {
+                                                list = (ArrayList<Student>)request.getAttribute("bt");
+                                            } else if (request.getAttribute("status") !=null)
+                                            {
+                                                list = (ArrayList<Student>)request.getAttribute("status");
+                                            } else if (request.getAttribute("txt") !=null)
+                                            {
+                                                list = (ArrayList<Student>)request.getAttribute("txt");
+                                            }
+                                            else
+                                            {
+                                                list=  service.ViewStudent();
+                                            }
+                                        %>
+
                                         <thead>
                                         <tr>
-                                            <th>Student ID</th>
-                                            <th>Name</th>
-                                            <th>Batch</th>
-                                            <th>Subject/s</th>
-                                            <th>Actions</th>
+                                            <th scope="col">Student ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Batch</th>
+                                            <th scope="col">Subject/s</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Profile</th>
+                                            <th scope="col">Edit</th>
+                                            <th scope="col">Delete</th>
                                         </tr>
                                         </thead>
+
                                         <tbody>
                                         <%for(Student i:list){ %>
                                         <tr>
                                             <td id="id"><%= i.getId() %></td>
-                                            <td id="name"><%= i.getFirstName() %></td>
+                                            <td id="name"><%= i.getFullName() %></td>
                                             <td id="batch"><%= i.getBatch() %></td>
                                             <td id="subject"><%= i.getList() %></td>
+                                            <td id="status"><%= i.getStatus() %></td>
                                             <td id="actions">
-                                                <form class="form" name="form" action="<%=request.getContextPath()%>/UserProfileServlet" method="post">
-                                                    <input type="hidden" name="sID" id="sID" class="form-control" value=<%= i.getId() %>>
-                                                    <button type="submit" class="btn" style="background-color:transparent"><i class="fas fa-eye" style="color:darkblue"></i></button>
-                                                    <button type="submit" class="btn" style="background-color:transparent"><i class="fas fa-edit" style="color:limegreen"></i></button>
-                                                    <button type="submit" class="btn" style="background-color:transparent"><i class="fas fa-trash-alt"  style="color:Red"></i></button>
-                                                </form>
+                                                <!-- User Profile Button -->
+                                                <a href="<%=request.getContextPath()%>/UserProfileServlet?id=<%=i.getId()%>" class="btn" style="background-color:transparent"><i class="fas fa-eye" style="color:darkblue"></i></a>
+                                            </td>
+                                            <td id="edit">
+                                                <!-- Edit (Update) Button -->
+                                                <a href="<%=request.getContextPath()%>/RetrieveStudent?id=<%=i.getId()%>" class="btn" style="background-color:transparent"><i class="fas fa-edit" style="color:limegreen"></i></a href="<%=request.getContextPath()%>/RetrieveStudent?id=<%=i.getId()%>">
+                                            </td>
+                                            <td id="delete">
+                                                <!-- Delete Button -->
+                                                <a href="<%=request.getContextPath()%>/DeleteStudentServlet?getId=<%=i.getId()%>&getFirstName=<%=i.getFirstName()%>&getLastName=<%=i.getLastName()%>" class="btn" style="background-color:transparent"><i class="fas fa-trash-alt"  style="color:Red"></i></a>
                                             </td>
                                         </tr>
                                         <%} %>
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
@@ -353,60 +318,40 @@
                     <!-- end basic table  -->
                     <!-- ============================================================== -->
                 </div>
-
-                <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
-                <div class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2021 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">AriaEdu</a>.
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="text-md-right footer-links d-none d-sm-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end footer -->
-                <!-- ============================================================== -->
+                <!-- End Student List -->
             </div>
             <!-- ============================================================== -->
-            <!-- end wrapper  -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <%@include file="footer.jsp" %>
+            <!-- ============================================================== -->
+            <!-- end footer -->
             <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- end main wrapper  -->
-        <!-- ============================================================== -->
-        <!-- Optional JavaScript -->
-        <!-- jquery 3.3.1 -->
-        <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-        <!-- bootstap bundle js -->
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-        <!-- slimscroll js -->
-        <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-        <!-- main js -->
-        <script src="assets/libs/js/main-js.js"></script>
-        <!-- chart chartist js -->
-        <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-        <!-- sparkline js -->
-        <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-        <!-- morris js -->
-        <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-        <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-        <!-- chart c3 js -->
-        <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-        <script src="assets/libs/js/dashboard-ecommerce.js"></script>
     </div>
+    <!-- ============================================================== -->
+    <!-- end wrapper  -->
+    <!-- ============================================================== -->
 </div>
+<!-- ============================================================== -->
+<!-- end main wrapper  -->
+<!-- ============================================================== -->
+<!-- Optional JavaScript -->
+<!-- jquery 3.3.1 -->
+<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="js/custom/students/search.js"></script>
+<!-- bootstap bundle js -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- slimscroll js -->
+<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- main js -->
+<script src="assets/libs/js/main-js.js"></script>
+<!-- chart chartist js -->
+<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<!-- sparkline js -->
+<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- morris js -->
+<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
 </body>
-
 </html>
