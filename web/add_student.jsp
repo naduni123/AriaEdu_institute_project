@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/libs/css/hanskacss.css">
+    <link rel="stylesheet" href="assets/libs/css/hansakacss.css">
     <link rel="stylesheet" href="assets/libs/css/kavindulocal.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
@@ -25,124 +25,8 @@
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
 
-    <!-- Add Student Form Validation -->
+    <!-- DisabledCheck Bio and Maths -->
     <script>
-        //validate function
-        function validate() {
-            var firstName = document.forms["form"]["firstName"].value;
-            var lastName = document.forms["form"]["lastName"].value;
-            var dob = document.forms["form"]["dob"].value;
-            var nic = document.forms["form"]["nic"].value;
-            var address = document.forms["form"]["address"].value;
-            var gender = document.forms["form"]["gender"].value;
-            var phone = document.forms["form"]["phone"].value;
-            var email = document.forms["form"]["email"].value;
-            var admissionDate = document.forms["form"]["admissionDate"].value;
-            var batch = document.forms["form"]["batch"].value;
-
-            if (isAlphebatic(firstName)) {
-                if (isAlphebatic(lastName)) {
-                    if (isNumeric(phone)) {
-                        if (emailValidation(email)) {
-                            return true;
-                        }else {
-                            return false;
-                        }
-                    }else {
-                        return false;
-                    }
-                }else {
-                    return false;
-                }
-            }else {
-                return false;
-            }
-        }
-
-        <!-- Empty Validation -->
-        function isEmpty(elemValue, field) {
-            if (elemValue == " " || elemValue == null) {
-                alert("You cannot have " + field + "field empty");
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        <!-- First Name Validation -->
-        function isAlphebatic(elemValue) {
-            var exp = /^[a-zA-Z]+$/;
-            if (!isEmpty(elemValue, "firstName")) {
-                if (elemValue.match(exp)) {
-                    return true;
-                } else {
-                    alert("Enter only text for you first name");
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-
-        <!-- Last Name Validation -->
-        function isAlphebatic(elemValue) {
-            var exp = /^[a-zA-Z]+$/;
-            if (!isEmpty(elemValue, "lastName")) {
-                if (elemValue.match(exp)) {
-                    return true;
-                } else {
-                    alert("Enter only text for you last name");
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-
-        <!-- Email Validation -->
-        function emailValidation(elemValue) {
-            if (!isEmpty(elemValue, "email")) {
-                var atops = elemValue.indexOf("@");
-                var dotops = elemValue.indexOf(".");
-
-                if (atops < 1 || dotops+2 >= elemValue.length || atops+2 > dotops) {
-                    alert("Enter a valid email");
-                    return false;
-                } else{
-                    return true;
-                }
-            } else {
-                return false;
-            }
-        }
-
-        <!-- Phone Number Validation -->
-        function isNumeric(elemValue) {
-            if (!isEmpty(elemValue, "phone")) {
-                var exp=/^[0-9]+$/;
-
-                if (elemValue.match(exp)) {
-                    return true;
-                } else {
-                    alert("Enter a valid phone number");
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        }
-
-        function clearFields() {
-            document.getElementById("firstName").value="";
-            document.getElementById("lastName").value="";
-            document.getElementById("dob").value="";
-            document.getElementById("nic").value="";
-            document.getElementById("address").value="";
-            document.getElementById("phone").value="";
-            document.getElementById("email").value="";
-            document.getElementById("admissionDate").value="";
-        }
-
         function DisabledCheck() {
             document.getElementById("subjectTwo").disabled = true;
         }
@@ -277,120 +161,7 @@
     <!-- ============================================================== -->
     <!-- left sidebar -->
     <!-- ============================================================== -->
-    <div class="nav-left-sidebar sidebar-dark">
-        <div class="menu-list">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="d-xl-none d-lg-none" href="#">Student Management</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-divider">
-                            Menu
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="view_student_details.jsp" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user"></i>Student Management</a>
-                            <div id="submenu-2" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-users"></i>Teacher Management</a>
-                            <div id="submenu-3" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Attendance Management</a>
-                            <div id="submenu-4" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Time Tables</a>
-                            <div id="submenu-5" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-hospital-alt"></i>Class Room</a>
-                            <div id="submenu-6" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <%@include file="header.jsp" %>
     <!-- ============================================================== -->
     <!-- end left sidebar -->
     <!-- ============================================================== -->
@@ -423,23 +194,25 @@
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
 
-                <!-- ========================================your contents start here-------------->
-                <!-- Add Student Form -->
+                <!-- ========================================Add Student Form-------------->
                 <div class="card">
                     <h2 class="card-header">Add Student</h2>
                     <div class="card-body">
-                        <form class="form" name="form" action="<%=request.getContextPath()%>/AddStudentServlet" method="post" onsubmit="return validate()">
+                        <form class="form" name="form" action="<%=request.getContextPath()%>/AddStudentServlet" method="post" onsubmit="return studentValidation()">
+                            <h5 style="color:red" class="error" id="eEmpty"></h5>
                             <div class="row g-3">
                                 <!-- First Name -->
                                 <div class="divCol">
                                     <label class="col-form-label">First Name *</label>
-                                    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
+                                    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name">
+                                    <h5 style="color:red" class="error" id="eFirstName"></h5>
                                 </div>
 
                                 <!-- Last Name -->
                                 <div class="divCol">
                                     <label class="col-form-label">Last Name *</label>
-                                    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
+                                    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
+                                    <h5 style="color:red" class="error" id="eLastName"></h5>
                                 </div>
                             </div>
 
@@ -447,13 +220,15 @@
                                 <!-- Date Of Birth -->
                                 <div class="divCol">
                                     <label class="col-form-label">Date Of Birth *</label>
-                                    <input type="Date" name="dob" id="dob" class="form-control" required>
+                                    <input type="Date" name="dob" id="dob" class="form-control" max="2005-01-31" min="2002-02-01">
+                                    <h5 style="color:red" class="error" id="eDob"></h5>
                                 </div>
 
                                 <!-- NIC Number -->
                                 <div class="divCol">
                                     <label class="col-form-label">NIC *</label>
-                                    <input type="text" name="nic" id="nic" class="form-control" placeholder="National Identity Card Number" pattern="^200+([2-4]{1}[001-365]{3}[0001-9999]{4}[0-9]{1})$" title="Enter Valid Identity Card Number" required>
+                                    <input type="text" name="nic" id="nic" class="form-control" placeholder="National Identity Card Number">
+                                    <h5 style="color:red" class="error" id="eNic"></h5>
                                 </div>
                             </div>
 
@@ -461,7 +236,8 @@
                                 <!-- Address -->
                                 <div class="divCol2">
                                     <label class="col-form-label">Address *</label>
-                                    <input type="text" name="address" id="address" class="form-control" placeholder="Address" required>
+                                    <input type="text" name="address" id="address" class="form-control" placeholder="Address">
+                                    <h5 style="color:red" class="error" id="eAddress"></h5>
                                 </div>
                             </div>
 
@@ -475,35 +251,43 @@
                                     <label class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" name="gender" id="gender" value="Female" class="custom-control-input"><span class="custom-control-label">Female</span>
                                     </label>
+                                    <h5 style="color:red" class="error" id="eGender"></h5>
                                 </div>
 
                                 <!-- Phone Number -->
                                 <div class="divCol3">
                                     <label class="col-form-label">Phone Number *</label>
-                                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                                    <input type="tel" name="phone" id="phone" class="form-control" placeholder="Phone Number">
+                                    <h5 style="color:red" class="error" id="ePhone"></h5>
                                 </div>
 
                                 <!-- Email -->
-                                <div class="divCol3" align="right">
+                                <div class="divCol3">
                                     <label class="col-form-label">Email *</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                                    <h5 style="color:red" class="error" id="eEmail"></h5>
                                 </div>
                             </div>
 
                             <div class="row g-3">
+                                <!-- Admission Date -->
                                 <div class="divCol">
                                     <label class="col-form-label">Admission Date *</label>
-                                    <input type="Date" name="admissionDate" id="admissionDate" class="form-control" required>
+                                    <input type="Date" name="admissionDate" id="admissionDate" class="form-control">
+                                    <h5 style="color:red" class="error" id="eAdmissionDate"></h5>
                                 </div>
+
+                                <!-- Batch -->
                                 <div class="divCol">
                                     <div class="form-group">
                                         <label class="col-form-label" for="batch">Batch *</label>
-                                        <select class="form-control" name="batch" id="batch" required>
+                                        <select class="form-control" name="batch" id="batch">
                                             <option value="Select Batch" selected>Select Batch</option>
-                                            <option value="2021 A/L">2021 A/L</option>
-                                            <option value="2022 A/L">2022 A/L</option>
-                                            <option value="2023 A/L">2023 A/L</option>
+                                            <option value="2021">2021 A/L</option>
+                                            <option value="2022">2022 A/L</option>
+                                            <option value="2023">2023 A/L</option>
                                         </select>
+                                        <h5 style="color:red" class="error" id="eBatch"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -523,13 +307,13 @@
                                     <label class="custom-control custom-checkbox custom-control-inline">
                                         <input name="subject" id="subjectFour" value="Physics" type="checkbox" class="custom-control-input"><span class="custom-control-label">Physics</span>
                                     </label>
+                                    <h5 style="color:red" class="error" id="eSubject"></h5>
                                 </div>
                             </div>
 
                             <div class="btndiv">
                                 <!-- Reset Button -->
                                 <input type="button" class="btn btn-rounded btn-danger" value="Reset" onclick="clearFields()">
-
                                 <!-- Add Button-->
                                 <button type="submit" class="btn btn-rounded btn-primary">Add</button>
                             </div>
@@ -537,26 +321,10 @@
                     </div>
                 </div>
                 <!-- End Add Student Form -->
-
                 <!-- ============================================================== -->
                 <!-- footer -->
                 <!-- ============================================================== -->
-                <div class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2021 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">AriaEdu</a>.
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="text-md-right footer-links d-none d-sm-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <%@include file="footer.jsp" %>
                 <!-- ============================================================== -->
                 <!-- end footer -->
                 <!-- ============================================================== -->
@@ -571,6 +339,7 @@
         <!-- Optional JavaScript -->
         <!-- jquery 3.3.1 -->
         <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- bootstap bundle js -->
         <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
         <!-- slimscroll js -->
@@ -589,5 +358,29 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <!--import Add Student Details function js and validations js -->
+        <script src="js/custom/students/studentFormValidation.js"></script>
+        <!-- Future Date Disable Validation js -->
+        <script>
+            //Declare Variables and Assign Values
+            var todayDate = new Date();
+            var month = todayDate.getMonth() + 1;
+            var year = todayDate.getFullYear();
+            var tdate = todayDate.getDate();
+
+            //One Digit Month Convert into Two Digit
+            if (month < 10) {
+                month = "0" + month;
+            }
+
+            //One Digit Date Convert into Two Digit
+            if (tdate < 10) {
+                tdate = "0" + tdate;
+            }
+
+            //Create a Date Pattern
+            var maxDate = year + "-" + month + "-" + tdate;
+            document.getElementById("admissionDate").setAttribute("max", maxDate);
+        </script>
 </body>
 </html>
