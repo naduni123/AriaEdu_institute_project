@@ -6,8 +6,10 @@ public class Student {
 
     //declare variables
     private int id;
+    private String tempSubject;
     private String firstName;
     private String lastName;
+    private String fullName;
     private String gender;
     private Date dob;
     private String nic;
@@ -26,8 +28,9 @@ public class Student {
     }
 
     //parameterized constructor exclude id
-    public Student(String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
+    public Student(String tempSubject,String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
         super();
+        this.tempSubject = tempSubject;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -43,9 +46,10 @@ public class Student {
     }
 
     //Parameterized Constructor
-    public Student(int id, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
+    public Student(int id, String tempSubject, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
         super();
         this.id = id;
+        this.tempSubject = tempSubject;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -67,6 +71,22 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTempSubject() {
+        return tempSubject;
+    }
+
+    public void setTempSubject(String tempSubject) {
+        this.tempSubject = tempSubject;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getFirstName() {
