@@ -21,6 +21,7 @@ To change this template use File | Settings | File Templates.
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
     <title>AriaEdu | Student Management</title>
 </head>
 <body>
@@ -145,120 +146,7 @@ To change this template use File | Settings | File Templates.
     <!-- ============================================================== -->
     <!-- left sidebar -->
     <!-- ============================================================== -->
-    <div class="nav-left-sidebar sidebar-dark">
-        <div class="menu-list">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="d-xl-none d-lg-none" href="#">Student Management</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav flex-column">
-                        <li class="nav-divider">
-                            Menu
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="add_student.jsp" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-user"></i>Student Management</a>
-                            <div id="submenu-2" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-users"></i>Teacher Management</a>
-                            <div id="submenu-3" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fab fa-fw fa-wpforms"></i>Attendance Management</a>
-                            <div id="submenu-4" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-5" aria-controls="submenu-5"><i class="fas fa-fw fa-table"></i>Time Tables</a>
-                            <div id="submenu-5" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-6" aria-controls="submenu-6"><i class="fas fa-hospital-alt"></i>Class Room</a>
-                            <div id="submenu-6" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/cards.html">page 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/general.html">page 2</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/carousel.html">page 3</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages/listgroup.html">page 4</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
+    <%@include file="header.jsp" %>
     <!-- ============================================================== -->
     <!-- end left sidebar -->
     <!-- ============================================================== -->
@@ -290,12 +178,12 @@ To change this template use File | Settings | File Templates.
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
 
-                <!-- ========================================your contents start here-------------->
+                <!-- ========================================Dashboard Body-------------->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
                                 <h1 class="card-title border-bottom pb-2" style="text-align: center">STUDENTS</h1>
-                                <h2 class="card-text" style="color: darkgoldenrod; text-align: center;">12</h2>
+                                <h2 class="card-text" style="color: darkgoldenrod; text-align: center;">6</h2>
                         </div>
                     </div>
 
@@ -333,58 +221,39 @@ To change this template use File | Settings | File Templates.
                             </div>
                         </div>
                     </div>
-
-                    <!-- ============================================================== -->
-                <!-- footer -->
-                <!-- ============================================================== -->
-                <div class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                Copyright © 2021 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">AriaEdu</a>.
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div class="text-md-right footer-links d-none d-sm-block">
-                                    <a href="javascript: void(0);">About</a>
-                                    <a href="javascript: void(0);">Support</a>
-                                    <a href="javascript: void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- end footer -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- end wrapper  -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <%@include file="footer.jsp" %>
+            <!-- ============================================================== -->
+            <!-- end footer -->
             <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- end main wrapper  -->
-        <!-- ============================================================== -->
-        <!-- Optional JavaScript -->
-        <!-- jquery 3.3.1 -->
-        <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-        <!-- bootstap bundle js -->
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-        <!-- slimscroll js -->
-        <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-        <!-- main js -->
-        <script src="assets/libs/js/main-js.js"></script>
-        <!-- chart chartist js -->
-        <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-        <!-- sparkline js -->
-        <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-        <!-- morris js -->
-        <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-        <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-        <!-- chart c3 js -->
-        <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-        <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-        <script src="assets/libs/js/dashboard-ecommerce.js"></script>
-
+    </div>
+    <!-- end wrapper  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+</div>
+<!-- end main wrapper  -->
+<!-- ============================================================== -->
+<!-- Optional JavaScript -->
+<!-- jquery 3.3.1 -->
+<script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<!-- bootstap bundle js -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<!-- slimscroll js -->
+<script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<!-- main js -->
+<script src="assets/libs/js/main-js.js"></script>
+<!-- chart chartist js -->
+<script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+<!-- sparkline js -->
+<script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+<!-- morris js -->
+<script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+<script src="assets/vendor/charts/morris-bundle/morris.js"></script>
 </body>
 </html>
