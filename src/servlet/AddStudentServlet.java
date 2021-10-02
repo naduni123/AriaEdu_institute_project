@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
 
-
+//Servlet implementation class AddStudentServlet
 @WebServlet("/AddStudentServlet")
 public class AddStudentServlet extends HttpServlet {
     public AddStudentServlet() {
         super();
     }
+
+    //@see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Create an Object
         Student student = new Student();
@@ -36,14 +38,14 @@ public class AddStudentServlet extends HttpServlet {
 
         //Create an Object
         StudentService studentService = new StudentService();
+
         //Call addStudent function in studentService
         studentService.addStudent(student);
+        //Direct to view_student_details page
         response.sendRedirect("view_student_details.jsp");
-
     }
 
+    //@see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Working..."
-        );
     }
 }
