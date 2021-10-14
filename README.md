@@ -17,3 +17,16 @@ Balasooriya DPKD - Timetable Management & Classroom Management | Priyanka PDMK -
 
 ## Technologies
 Language - Java | Database - MySQL | IDE - IntelliJ IDEA | Integrate Technology Service - GitHub
+
+## How to get started with your app
+### Prerequisites
+1.
+2.
+3.
+
+### Procedure of setting up Prerequisites and run the project
+1.
+2.
+3.
+
+Include all the steps to run the app as a new user
