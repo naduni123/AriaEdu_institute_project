@@ -20,13 +20,12 @@ Language - Java | Database - MySQL | IDE - IntelliJ IDEA | Integrate Technology 
 
 ## How to get started with your app
 ### Prerequisites
-1.
-2.
-3.
+1. Java JDK 14
+2. MySQL
+3. IntelliJ IDEA or Other IDE
 
 ### Procedure of setting up Prerequisites and run the project
-1.
-2.
-3.
-
-Include all the steps to run the app as a new user
+1. Clone the project
+2. Chanage the DBConnection Util Path (src/util/DBConnectionUtil)
+3. Import the database
+4. Run the app
