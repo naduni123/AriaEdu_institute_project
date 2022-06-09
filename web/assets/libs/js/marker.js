@@ -9,6 +9,12 @@
     }
 
 }
+
+function f() {
+
+    alert('hello');
+
+=======
 */
 
 function validate(){

@@ -1,8 +1,6 @@
 package servlet;
 
-import model.Classroom;
 import model.TimeSlot;
-import service.ClassroomService;
 import service.TimeSlotService;
 
 import javax.servlet.ServletException;
@@ -11,13 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Time;
 
-//ADD TIMESLOT
-@WebServlet("/AddTImeSlotServlet")
-public class AddTImeSlotServlet extends HttpServlet {
+//EDIT TIMESLOT
+@WebServlet("/EditTimeSlotServlet")
+public class EditTimeSlotServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         TimeSlot timeSlot = new TimeSlot();
         TimeSlotService timeSlotService = new TimeSlotService();
 
@@ -33,6 +29,7 @@ public class AddTImeSlotServlet extends HttpServlet {
 
         if(check == false) {
 
+            timeSlot.setId((Integer) request.getAttribute("slotId"));
             timeSlot.setBatch(Integer.parseInt(request.getParameter("batch")));
             timeSlot.setDate(request.getParameter("day"));
             timeSlot.setStartTime(request.getParameter("starttime"));
@@ -42,7 +39,7 @@ public class AddTImeSlotServlet extends HttpServlet {
             timeSlot.setClassroom(Integer.parseInt(request.getParameter("classroom")));
 
 
-            timeSlotService.AddTimeSlot(timeSlot);
+            timeSlotService.UpdateTimeSlot(timeSlot);
             response.sendRedirect("timetabledashboard.jsp");
 
         }else{

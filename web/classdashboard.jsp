@@ -297,7 +297,7 @@
                     <div class="card">
                         <br><br><br><br><br>
                         <div class="fullwidth">
-                            <a href="" class="center1">Classroom Status</a>
+                            <a href="classroomstatus.jsp" class="center1">Classroom Status</a>
                         </div>
                     </div>
                 </div>

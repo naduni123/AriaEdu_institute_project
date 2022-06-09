@@ -306,19 +306,25 @@
                     LoadingService service = new LoadingService();
                     ArrayList<Batch> tempBatch = service.viewBatch();
                     ArrayList<Loading> tempTeacher = service.viewTeacher();
+
                 %>
                 <div class="card">
                     <div class="card-body">
-                        <form action="<%=request.getContextPath()%>/AddTImeSlotServlet" method="post">
+                        <form action="<%=request.getContextPath()%>/UpdateTimeSlotServlet" onsubmit="return validateform()" method="post">
                             <div class="row g-3">
                                 <div class="divCol">
                                     <div class="form-group">
+                                        <%
+                                            System.out.println(request.getAttribute("slotId"));
+                                        %>
+                                        <input type="hidden" id="id" name="id" value="<%=request.getAttribute("slotId")%>">
                                         <label for="batch">Batch</label>
                                         <select class="form-control" id="batch" name="batch">
-                                            <option value="0">choose batch</option>
+                                            <option value="<%=request.getAttribute("slotBatch")%>"><%=request.getAttribute("slotBatch")%></option>
                                             <%
                                                 for(Batch batch:tempBatch){
                                             %>
+
                                             <option value="<%=batch.getId()%>"><%=batch.getName()%></option>
                                             <%
                                                 }
@@ -330,7 +336,7 @@
                                     <div class="form-group">
                                         <label for="day">Day</label>
                                         <select class="form-control" id="day" name="day">
-                                            <option value="0">choose date</option>
+                                            <option value="<%=request.getAttribute("slotDate")%>"><%=request.getAttribute("slotDate")%></option>
                                             <option value="monday">Monday</option>
                                             <option value="tuesday">Tuesday</option>
                                             <option value="wednesday">Wednesday</option>
@@ -346,13 +352,13 @@
                                 <div class="divCol">
                                     <div class="form-control">
                                         <label for="starttime">Start Time</label>
-                                        <input type="Time" name="starttime" id="starttime" required>
+                                        <input type="Time" name="starttime" id="starttime"  value="<%=request.getAttribute("slotStime")%>" required>
                                     </div>
                                 </div>
                                 <div class="divCol">
                                     <div class="form-control">
                                         <label for="endtime">End Time</label>
-                                        <input type="Time" name="endtime" id="endtime" required>
+                                        <input type="Time" name="endtime" id="endtime" value="<%=request.getAttribute("slotEtime")%>" required>
                                     </div>
                                 </div>
                             </div>
@@ -360,8 +366,8 @@
                                 <div class="divCol">
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
-                                        <select class="form-control" id="subject" name="subject">
-                                            <option value="0">choose subject</option>
+                                        <select class="form-control" id="subject"  name="subject">
+                                            <option value="<%=request.getAttribute("slotSub")%>"><%=request.getAttribute("slotSub")%></option>
                                             <option value="bio">Biology</option>
                                             <option value="maths">Combined Maths</option>
                                             <option value="phy">Physics</option>
@@ -373,7 +379,7 @@
                                     <div class="form-group">
                                         <label for="teacher">Teacher</label>
                                         <select class="form-control" id="teacher" name="teacher">
-                                            <option value="0">choose teacher</option>
+                                            <option value="<%=request.getAttribute("slotTeacher")%>"><%=request.getAttribute("slotTeacher")%></option>
                                             <%
                                                 for(Loading loading :tempTeacher){
                                             %>
@@ -390,7 +396,7 @@
                                     <div class="form-group">
                                         <label for="classroom">Hall</label>
                                         <select class="form-control" id="classroom" name="classroom">
-                                            <option value="0">choose classroom</option>
+                                            <option value="<%=request.getAttribute("slotClass")%>"><%=request.getAttribute("slotClass")%></option>
                                             <%
                                                 for(Classroom classroom :tempClass){
                                                     System.out.println(classroom.getName());
@@ -403,11 +409,12 @@
                                     </div>
                                 </div>
                             </div>
-                    </div>
+
+
                     <div class="row g-3">
                         <div class="btndiv">
-                            <a href="#" class="btn btn-rounded btn-danger">Reset</a>
-                            <button type="submit" class="btn btn-rounded btn-primary">Add</button>
+                            <a onclick="reset()" class="btn btn-rounded btn-danger">Reset</a>
+                            <button type="submit" class="btn btn-rounded btn-primary">update</button>
                         </div>
                     </div>
                     </form>
@@ -469,6 +476,7 @@
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+        <script src="assets/libs/js/timeslot.js"></script>
 
     <!--- JQuery Area-->
     <script >

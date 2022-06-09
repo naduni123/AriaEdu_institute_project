@@ -294,7 +294,6 @@
                 <!-- ============================================================== -->
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
-
                 <!-- ========================================your contents start here-------------->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
@@ -330,25 +329,19 @@
                     </div>
 
                     <div class="card">
-                        <h5 class="card-header">Classrooms</h5>
+                        <h5 class="card-header">Teachers Time Table</h5>
                         <div class="card-body">
                             <%
                                 ArrayList<TimeSlot> tempTime = new ArrayList<>();
                                 TimeSlotService timeSlotService = new TimeSlotService();
                                 LoadingService loadingService = new LoadingService();
 
-
-
                                 int teacherId = 0;
                                teacherId = Integer.parseInt(request.getParameter("teacher"));
-                               System.out.println(teacherId);
 
                                 if(teacherId != 0){
 //
                                     tempTime = timeSlotService.viewTimeByTeacherID(teacherId);
-                               }else {
-
-                                  tempTime = timeSlotService.viewTime();
                                }
                             %>
                             <div class="table-responsive">
@@ -382,7 +375,7 @@
                                         <td><%=timeSlot.getClassroom()%></td>
                                         <td>
                                             <a href="RetrieveToUpdateServlet?slotid=<%=timeSlot.getId()%>"><i class="fas fa-edit"></i></a>
-                                            <a><i class="fas fa-trash-alt"></i></a>
+                                            <a href="DeleteTeacherTimeServlet?id=<%=timeSlot.getId()%>"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     <%

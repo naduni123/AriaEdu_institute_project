@@ -292,13 +292,15 @@
                 <!-- ============================================================== -->
                 <!-- end pageheader  -->
                 <!-- ============================================================== -->
-
                 <!-- ========================================your contents start here-------------->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Classrooms</h5>
                         <div class="card-body">
                             <div class="table-responsive">
+
+                                <a href="GenerateClassServlet"><i class="fas fa-file-pdf"></i></a>
+
                                 <table class="table table-striped table-bordered first">
 
                                     <% ClassroomService service = new ClassroomService();
@@ -324,7 +326,8 @@
                                         <td id="capacity"><%= i.getCapacity() %></td>
                                         <td id="ac"><%= i.getAc() %></td>
                                         <td>
-                                            <a href="update_classroom.jsp"><i class="fas fa-edit"></i></a>
+                                            <a href="RetrieveClassroomToUpdateServlet?id=<%=i.getId()%>"><i class="fas fa-edit"></i></a>
+                                            <a href="DeleteClassroomServlet?id=<%=i.getId()%>"><i class="fas fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     <%} %>

@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-//ADD CLASSROOM
-@WebServlet("/AddClassroomServlet")
-public class AddClassroomServlet extends HttpServlet {
+//EDIT CLASSROOM
+@WebServlet( "/EditClassroomServlet")
+public class EditClassroomServlet extends HttpServlet {
+    ClassroomService  classroomService  = new ClassroomService();
+    Classroom classroom = new Classroom();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String name=request.getParameter("name");
@@ -22,13 +25,14 @@ public class AddClassroomServlet extends HttpServlet {
 
         Classroom classroom = new Classroom(){};
 
+        classroom.setId(Integer.parseInt(request.getParameter("id")));
         classroom.setName(name);
         classroom.setFloor(floor);
         classroom.setCapacity(capacity);
         classroom.setAc(ac);
 
         ClassroomService classroomService = new ClassroomService();
-        classroomService.addClassroom(classroom);
+        classroomService.editClassroom(classroom);
         response.sendRedirect("classroomlist.jsp");
     }
 

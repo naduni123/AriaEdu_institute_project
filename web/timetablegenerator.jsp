@@ -1,13 +1,16 @@
-<%@ page import="model.Loading" %>
-<%@ page import="service.LoadingService" %>
+<%@ page import="service.ClassroomService" %>
+<%@ page import="model.Classroom" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.TimeSlot" %>
 <%@ page import="service.TimeSlotService" %>
-<%@ page import="model.Batch" %><%--
+<%@ page import="service.LoadingService" %>
+<%@ page import="model.Batch" %>
+<%@ page import="model.Loading" %>
+<%@ page import="java.sql.Time" %><%--
   Created by IntelliJ IDEA.
   User: Kavindu Balasooriya
-  Date: 8/21/2021
-  Time: 4:42 PM
+  Date: 8/16/2021
+  Time: 9:43 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -27,9 +30,11 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
-    <title>AriaEdu</title>
+    <title>Timetable</title>
 </head>
 <body>
+
+
 <!-- ============================================================== -->
 <!-- main wrapper -->
 <!-- ============================================================== -->
@@ -280,12 +285,12 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Student TimeTable</h2>
+                            <h2 class="pageheader-title">Timetable</h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">student time table</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Timetable</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -298,18 +303,52 @@
 
                 <!-- ========================================your contents start here-------------->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+
                     <div class="card">
                         <div class="card-body">
-                            <form action="" method="get">
+                            <form action="<%=request.getContextPath()%>/GenerateTeacherServlet" method="post">
                                 <div class="row g-3">
                                     <div class="divCol">
                                         <%
                                             LoadingService service = new LoadingService();
-                                            ArrayList<Batch> tempBatch =service.viewBatch();
+                                            ArrayList<Loading>tempTeacher =service.viewTeacher();
 
                                         %>
                                         <div class="form-group">
-                                            <label for="batch">Teacher</label>
+                                            <label for="teacher">Teacher</label>
+                                            <select class="form-control" id="teacher" name="teacher">
+                                                <option value="0">teacher</option>
+                                                <%
+                                                    for(Loading load : tempTeacher){
+                                                %>
+                                                <option value="<%=load.getTeacherId()%>"><%=load.getTeacherName()%></option>
+                                                <%
+                                                    }
+                                                %>
+                                            </select>
+                                        </div>
+                                        <div class="btndiv">
+                                            <button type="submit" class="btn btn-rounded btn-primary">generate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="<%=request.getContextPath()%>/GenerateStudentServlet" method="post">
+                                <div class="row g-3">
+                                    <div class="divCol">
+                                        <%
+                                            LoadingService service1 = new LoadingService();
+                                            ArrayList<Batch> tempBatch =service1.viewBatch();
+
+                                        %>
+                                        <div class="form-group">
+                                            <label for="batch">Batch</label>
                                             <select class="form-control" id="batch" name="batch">
                                                 <option value="0">batch</option>
                                                 <%
@@ -322,147 +361,66 @@
                                             </select>
                                         </div>
                                         <div class="btndiv">
-                                            <button type="submit" class="btn btn-rounded btn-primary">search</button>
+                                            <button type="submit" class="btn btn-rounded btn-primary">generate</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="card">
-                        <h5 class="card-header">Classrooms</h5>
-                        <div class="card-body">
-                            <%
-                                ArrayList<TimeSlot> tempTime = new ArrayList<>();
-                                TimeSlotService timeSlotService = new TimeSlotService();
-                                LoadingService loadingService = new LoadingService();
 
 
-
-                                int teacherId = 0;
-                                int batchId = Integer.parseInt(request.getParameter("batch"));
-                                System.out.println(teacherId);
-
-                                if(batchId != 0){
-//
-                                    tempTime = timeSlotService.viewTimeByBatchID(batchId);
-                                }else {
-
-                                    tempTime = timeSlotService.viewTime();
-                                }
-                            %>
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered first">
-                                    <thead>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Day</th>
-                                        <th>Start Time</th>
-                                        <th>End Time</th>
-                                        <th>Teacher</th>
-                                        <th>Hall</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <%
-                                        for(TimeSlot timeSlot :tempTime){
-
-                                            // String bName = loadingService.findBatch(timeSlot.getBatch());
-                                            //   String hName =loadingService.findClass(timeSlot.getClassroom());
-                                            //  String tName =loadingService.findTeacher(timeSlot.getTeacher());
-
-                                    %>
-                                    <tr>
-                                        <td><%=timeSlot.getSubject()%></td>
-                                        <td><%=timeSlot.getDate()%></td>
-                                        <td><%=timeSlot.getStartTime()%></td>
-                                        <td><%=timeSlot.getEndTime()%></td>
-                                        <td><%=timeSlot.getTeacher()%></td>
-                                        <td><%=timeSlot.getClassroom()%></td>
-                                        <td>
-
-                                            <a  href="RetrieveToUpdateServlet?slotid=<%=timeSlot.getId()%>"><i class="fas fa-edit"></i></a>
-
-
-                                            <a href="DeleteStudentTimeServlet?id=<%=timeSlot.getId()%>"><i class="fas fa-trash-alt"></i></a>
-
-                                        </td>
-                                    </tr>
-                                    <%
-                                        }
-                                    %>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <th>Subject</th>
-                                        <th>Day</th>
-                                        <th>Start Time</th>
-                                        <th>End Time</th>
-                                        <th>Teacher</th>
-                                        <th>Hall</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </tfoot>
-                                </table>
+                    <!-- ============================================================== -->
+                    <!-- footer -->
+                    <!-- ============================================================== -->
+                    <div class="footer">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <div class="text-md-right footer-links d-none d-sm-block">
+                                        <a href="javascript: void(0);">About</a>
+                                        <a href="javascript: void(0);">Support</a>
+                                        <a href="javascript: void(0);">Contact Us</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-            </div>
-
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end footer -->
+                    <!-- ============================================================== -->
                 </div>
+                <!-- ============================================================== -->
+                <!-- end wrapper  -->
+                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
-            <!-- end footer -->
+            <!-- end main wrapper  -->
             <!-- ============================================================== -->
-        </div>
-        <!-- ============================================================== -->
-        <!-- end wrapper  -->
-        <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- end main wrapper  -->
-    <!-- ============================================================== -->
-    <!-- Optional JavaScript -->
-    <!-- jquery 3.3.1 -->
-    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <!-- bootstap bundle js -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <!-- slimscroll js -->
-    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <!-- main js -->
-    <script src="assets/libs/js/main-js.js"></script>
-    <!-- chart chartist js -->
-    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
-    <!-- sparkline js -->
-    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
-    <!-- morris js -->
-    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
-    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
-    <!-- chart c3 js -->
-    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
-    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
-    <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
-    <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+            <!-- Optional JavaScript -->
+            <!-- jquery 3.3.1 -->
+            <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+            <!-- bootstap bundle js -->
+            <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+            <!-- slimscroll js -->
+            <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+            <!-- main js -->
+            <script src="assets/libs/js/main-js.js"></script>
+            <!-- chart chartist js -->
+            <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+            <!-- sparkline js -->
+            <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+            <!-- morris js -->
+            <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+            <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+            <!-- chart c3 js -->
+            <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+            <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+            <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+            <script src="assets/libs/js/dashboard-ecommerce.js"></script>
 
 </body>
 </html>

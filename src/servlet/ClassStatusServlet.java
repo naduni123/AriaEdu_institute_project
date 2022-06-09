@@ -12,21 +12,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-//RETRIEVE CLASS ROOM LIST
-@WebServlet("/ClassroomListServlet")
-public class ClassroomListServlet extends HttpServlet {
+//CLASSROOM STATUS
+@WebServlet("/ClassStatusServlet")
+public class ClassStatusServlet extends HttpServlet {
 
     ClassroomService classroomService= new ClassroomService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            List<Classroom> list = new ArrayList<>();
-            try{
-                list = classroomService.viewClassroom();
-                request.setAttribute("list",list);
+        List<Classroom> list = new ArrayList<>();
+        try{
+            list = classroomService.viewClassroom();
+            request.setAttribute("list",list);
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

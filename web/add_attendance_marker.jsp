@@ -399,6 +399,8 @@
                                 </div>
                             </div>
                             <div class="bottombtn">
+                                <a onclick="f()" class="btn btn-rounded btn-danger">Reset</a>
+                                <button id="btnsave" type="submit" onclick ="toSubmit()" class="btn btn-rounded btn-primary">Add</button>
                                 <button href="#" class="btn btn-rounded btn-danger">Reset</button>
                                 <button id="btnsave" type="submit" class="btn btn-rounded btn-primary">Add</button>
                             </div>
@@ -459,6 +461,7 @@
         <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
         <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
         <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+            <script src="assets/libs/js/marker.js"></script>
 
 
 
