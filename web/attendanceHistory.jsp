@@ -6,6 +6,7 @@
 <%@ page import="model.Student" %>
 <%@ page import="servlet.MarkAttendanceStudentListServlet" %>
 <%@ page import="model.Attendance" %>
+<%@ page import="java.sql.Date" %>
 <!doctype html>
 <html lang="en">
 
@@ -284,7 +285,7 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Bland</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Attendance History</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -297,7 +298,7 @@
 
                 <!-- ========================================your contents start here-------------->
                 <div class="card">
-                    <h2 class="card-header">Marke Attendance</h2>
+                    <h2 class="card-header">Attendance History</h2>
                     <div class="card-body">
                         <%
                             LoadingService service = new LoadingService();
@@ -311,7 +312,7 @@
                                     <br>
                                     <div class="input-group">
                                         <label>Date</label><br>
-                                        <input type="Date" name="date"/>
+                                        <input type="Date" name="date" id="date"/>
                                     </div>
                                 </div>
                                 <div class="divCol5">
@@ -361,17 +362,18 @@
                                 <div class="card-body">
                                     <% AttendanceService service1 = new AttendanceService();
 
-                                       // String subject = request.getParameter("subject");
-                                      //  String batch = request.getParameter("batch");
+                                        String subject = request.getParameter("subject");
+                                       String batch = request.getParameter("batch");
+                                       Date date = Date.valueOf(request.getParameter("date"));
 
-                                        ArrayList<Attendance> list =service1.seeAttendance();
+                                        ArrayList<Attendance> list =new ArrayList<>();
 
-                                       /* if(subject != null && batch != null){
-                                            list = service1.viewbySubject(subject,batch);
+                                        if(subject != null && batch != null){
+                                            list = service1.viewAttendancebySubject(subject,batch,date);
                                         }
-                                        else {
-                                            list = service1.loadStudent();
-                                        } */
+                                       else {
+                                           list = service1.seeAttendance();
+                                        }
                                     %>
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered first">
@@ -385,28 +387,28 @@
                                             <tbody>
                                             <%
                                                 for(Attendance a :list){
+                                                    int check = a.getStatus();
+                                                    System.out.println(check);
                                             %>
-                                            <form action="<%=request.getContextPath()%>/AddAttendanceServlet" method="post">
                                                 <tr>
-                                                    <td  ><li value="<%=a.getId()%>" id="sid" name="sid"></li></td>
-                                                    <td ><h3 id="name" name="name"><%=a.getName()%></h3></td>
+                                                    <td  value="<%=a.getId()%>" id="sid" name="sid"><%=a.getId()%></td>
+                                                    <td id="name" name="name"><%=a.getName()%></td>
                                                     <td >
                                                         <%
-                                                        System.out.println(a.getStatus());
-                                                            if(a.getStatus()==1){
+                                                            if(check==1){
                                                         %>
                                                         <a  href="edit?  class="btn btn-lg btn-success"><i class="fa fa-check fa-4x" aria-hidden="true"></i></a>
                                                         <%
-                                                            }else{
+                                                            }else {
                                                         %>
-                                                        <a  href="edit?  class="btn btn-lg btn-success"><i class="fa fa-reject fa-4x" aria-hidden="true"></i></a>
+                                                        <a  href="edit?  class="btn btn-lg btn-success"><i class="fa fa-times fa-4x" aria-hidden="true"></i></a>
                                                         <%
                                                             }
                                                         %>
                                                     </td>
-                                                    <td><button type="submit">save</button></td>
+
                                                 </tr>
-                                            </form>
+
                                             <%
                                                 }
                                             %>

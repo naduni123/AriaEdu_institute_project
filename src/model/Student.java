@@ -6,8 +6,10 @@ public class Student {
 
     //declare variables
     private int id;
+    private String tempSubject;
     private String firstName;
     private String lastName;
+    private String fullName;
     private String gender;
     private Date dob;
     private String nic;
@@ -16,6 +18,7 @@ public class Student {
     private String email;
     private Date admissionDate;
     private String batch;
+    private String status;
     private String[] subject;
     private String list;
 
@@ -24,10 +27,10 @@ public class Student {
         super();
     }
 
-    //parameterized constructor
-    public Student(int id, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String[] subject) {
+    //parameterized constructor exclude id
+    public Student(String tempSubject,String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
         super();
-        this.id = id;
+        this.tempSubject = tempSubject;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -38,6 +41,26 @@ public class Student {
         this.email = email;
         this.admissionDate = admissionDate;
         this.batch = batch;
+        this.status = status;
+        this.subject = subject;
+    }
+
+    //Parameterized Constructor
+    public Student(int id, String tempSubject, String firstName, String lastName, String gender, Date dob, String nic, String address, int phone, String email, Date admissionDate, String batch, String status, String[] subject) {
+        super();
+        this.id = id;
+        this.tempSubject = tempSubject;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.dob = dob;
+        this.nic = nic;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.admissionDate = admissionDate;
+        this.batch = batch;
+        this.status = status;
         this.subject = subject;
     }
 
@@ -48,6 +71,22 @@ public class Student {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTempSubject() {
+        return tempSubject;
+    }
+
+    public void setTempSubject(String tempSubject) {
+        this.tempSubject = tempSubject;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getFirstName() {
@@ -128,6 +167,14 @@ public class Student {
 
     public void setBatch(String batch) {
         this.batch = batch;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String[] getSubject() {

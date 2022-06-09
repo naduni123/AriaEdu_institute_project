@@ -1,4 +1,4 @@
-const toSubmit =()=>{
+/*const toSubmit =()=>{
 
     if(document.getElementById("fname").value == "")
     {
@@ -14,4 +14,10 @@ function f() {
 
     alert('hello');
 
+=======
+*/
+
+function validate(){
+
+    alert("hi");
 }
